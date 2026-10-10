@@ -129,11 +129,11 @@ export function Sidebar() {
         ))}
       </nav>
 
-      {/* Which build this is — the time it was made, and its commit on hover. */}
+      {/* Which version this is: V_ day month - that day's number (India time); its commit on hover. */}
       {expanded ? (
         <div className="shrink-0 border-t border-border-soft px-2.5 py-2">
-          <p className="px-2.5 pb-1 pt-1 text-2xs font-medium tabular-nums tracking-wide text-ink-subtle" title={`Build ${__BUILD_STAMP__} · commit ${__BUILD_COMMIT__}`}>
-            Version {__BUILD_STAMP__}
+          <p className="px-2.5 pb-1 pt-1 text-2xs font-medium tabular-nums tracking-wide text-ink-subtle" title={`Version ${__BUILD_STAMP__} · commit ${__BUILD_COMMIT__}`}>
+            {__BUILD_STAMP__}
           </p>
         </div>
       ) : null}
