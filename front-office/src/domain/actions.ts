@@ -168,7 +168,7 @@ export function registerPatient(input: RegisterPatientInput): Patient {
   const state = getState()
   if (abhaId) assertAbhaFree(state, abhaId)
   const seq = state.nextIds.patient
-  const uhid = `SHRI-${String(130000 + seq).padStart(7, '0')}`
+  const uhid = `ISH-${String(130000 + seq).padStart(7, '0')}`
   const patient: Patient = {
     patientId: uhid,
     uhid,

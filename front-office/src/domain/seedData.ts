@@ -516,51 +516,51 @@ export function createSeedState(): AppState {
 
   const patients: Patient[] = [
     // In a bed now
-    patient({ uhid: 'SHRI-0044120', name: 'Ramesh Babu', nameNative: 'ரமேஷ் பாபு', age: 64, sex: 'Male', mobile: '+91 98431 22456', address: '12 Raja Street, R.S. Puram, Coimbatore 641002', abhaId: 'ramesh.babu@abdm', createdAt: daysAgo(400) }),
-    patient({ uhid: 'SHRI-0069958', name: 'Abdul Rahman', nameNative: 'عبدالرحمن', age: 59, sex: 'Male', mobile: '+91 98422 70315', email: 'a.rahman@example.com', address: '31 Big Bazaar Street, Town Hall, Coimbatore 641001', abhaId: 'abdul.rahman@abdm', createdAt: daysAgo(280) }),
-    patient({ uhid: 'SHRI-0102234', name: 'Anjali Menon', nameNative: 'അഞ്ജലി മേനോൻ', age: 29, sex: 'Female', mobile: '+91 99000 44310', email: 'anjali.menon@example.com', address: '7 Lake View, Race Course, Coimbatore 641018', createdAt: daysAgo(90) }),
-    patient({ uhid: 'SHRI-0106392', name: 'Selvi Murugan', nameNative: 'செல்வி முருகன்', age: 71, sex: 'Female', mobile: '+91 98940 31876', address: '5 Kamarajar Street, Ganapathy, Coimbatore 641006', abhaId: '91-4410-2286-7731', createdAt: daysAgo(75) }),
-    patient({ uhid: 'SHRI-0125590', name: 'Karthik Subramanian', nameNative: 'கார்த்திக் சுப்பிரமணியன்', age: 52, sex: 'Male', mobile: '+91 94440 66231', address: '88 Avinashi Road, Peelamedu, Coimbatore 641004', abhaId: 'karthik.s@abdm', createdAt: hoursAgo(21) }),
-    patient({ uhid: 'SHRI-0129901', name: 'Mohan Raj', nameNative: 'மோகன் ராஜ்', age: 38, sex: 'Male', mobile: '+91 97890 22144', address: '19 Sathy Road, Saravanampatti, Coimbatore 641035', createdAt: minutesAgo(150) }),
+    patient({ uhid: 'ISH-0044120', name: 'Ramesh Babu', nameNative: 'ரமேஷ் பாபு', age: 64, sex: 'Male', mobile: '+91 98431 22456', address: '12 Raja Street, R.S. Puram, Coimbatore 641002', abhaId: 'ramesh.babu@abdm', createdAt: daysAgo(400) }),
+    patient({ uhid: 'ISH-0069958', name: 'Abdul Rahman', nameNative: 'عبدالرحمن', age: 59, sex: 'Male', mobile: '+91 98422 70315', email: 'a.rahman@example.com', address: '31 Big Bazaar Street, Town Hall, Coimbatore 641001', abhaId: 'abdul.rahman@abdm', createdAt: daysAgo(280) }),
+    patient({ uhid: 'ISH-0102234', name: 'Anjali Menon', nameNative: 'അഞ്ജലി മേനോൻ', age: 29, sex: 'Female', mobile: '+91 99000 44310', email: 'anjali.menon@example.com', address: '7 Lake View, Race Course, Coimbatore 641018', createdAt: daysAgo(90) }),
+    patient({ uhid: 'ISH-0106392', name: 'Selvi Murugan', nameNative: 'செல்வி முருகன்', age: 71, sex: 'Female', mobile: '+91 98940 31876', address: '5 Kamarajar Street, Ganapathy, Coimbatore 641006', abhaId: '91-4410-2286-7731', createdAt: daysAgo(75) }),
+    patient({ uhid: 'ISH-0125590', name: 'Karthik Subramanian', nameNative: 'கார்த்திக் சுப்பிரமணியன்', age: 52, sex: 'Male', mobile: '+91 94440 66231', address: '88 Avinashi Road, Peelamedu, Coimbatore 641004', abhaId: 'karthik.s@abdm', createdAt: hoursAgo(21) }),
+    patient({ uhid: 'ISH-0129901', name: 'Mohan Raj', nameNative: 'மோகன் ராஜ்', age: 38, sex: 'Male', mobile: '+91 97890 22144', address: '19 Sathy Road, Saravanampatti, Coimbatore 641035', createdAt: minutesAgo(150) }),
 
     // Waiting for a bed
-    patient({ uhid: 'SHRI-0111045', name: 'Mohammed Irfan', age: 35, sex: 'Male', mobile: '+91 90031 77812', address: '21 Cross Cut Road, Gandhipuram, Coimbatore 641012', abhaId: 'mohammed.irfan@abdm', aliases: ['mohamed irfan', 'muhammad irfan'], createdAt: daysAgo(60) }),
-    patient({ uhid: 'SHRI-0122871', name: 'Kavitha Balaji', nameNative: 'கவிதா பாலாஜி', age: 56, sex: 'Female', mobile: '+91 99438 12055', address: '14 Bharathi Park Road, Saibaba Colony, Coimbatore 641011', abhaId: 'kavitha.b@abdm', createdAt: daysAgo(20) }),
+    patient({ uhid: 'ISH-0111045', name: 'Mohammed Irfan', age: 35, sex: 'Male', mobile: '+91 90031 77812', address: '21 Cross Cut Road, Gandhipuram, Coimbatore 641012', abhaId: 'mohammed.irfan@abdm', aliases: ['mohamed irfan', 'muhammad irfan'], createdAt: daysAgo(60) }),
+    patient({ uhid: 'ISH-0122871', name: 'Kavitha Balaji', nameNative: 'கவிதா பாலாஜி', age: 56, sex: 'Female', mobile: '+91 99438 12055', address: '14 Bharathi Park Road, Saibaba Colony, Coimbatore 641011', abhaId: 'kavitha.b@abdm', createdAt: daysAgo(20) }),
 
     // Outpatients in the queue today
-    patient({ uhid: 'SHRI-0091133', name: 'R. Lakshmanan', nameNative: 'ஆர். லக்ஷ்மணன்', age: 58, sex: 'Male', mobile: '+91 98432 11987', address: '44 Gandhi Road, Peelamedu, Coimbatore 641004', abhaId: 'lakshmanan.r@abdm', aliases: ['laxmanan r', 'laxmanan'], createdAt: daysAgo(200) }),
-    patient({ uhid: 'SHRI-0118934', name: 'Gopal Krishnan', nameNative: 'கோபால் கிருஷ்ணன்', age: 67, sex: 'Male', mobile: '+91 94433 50871', address: '3 Nehru Street, Ramanathapuram, Coimbatore 641045', createdAt: daysAgo(32) }),
-    patient({ uhid: 'SHRI-0120338', name: 'Sunita Rao', age: 47, sex: 'Female', mobile: '+91 98860 20114', address: '3 Trichy Road, Sungam, Coimbatore 641045', createdAt: daysAgo(30) }),
-    patient({ uhid: 'SHRI-0117760', name: 'Harish Chandran', nameNative: 'ഹരീഷ് ചന്ദ്രൻ', age: 44, sex: 'Male', mobile: '+91 95669 04218', email: 'harish.c@example.com', address: '27 Thadagam Road, Vadavalli, Coimbatore 641041', abhaId: '71-2093-5518-4402', createdAt: daysAgo(35) }),
-    patient({ uhid: 'SHRI-0124106', name: 'Arjun Prakash', age: 26, sex: 'Male', mobile: '+91 90807 44562', email: 'arjun.prakash@example.com', address: '62 DB Road, R.S. Puram, Coimbatore 641002', abhaId: 'arjun.prakash@abdm', createdAt: daysAgo(12) }),
-    patient({ uhid: 'SHRI-0078812', name: 'Fatima Sheikh', nameNative: 'فاطمہ شیخ', age: 41, sex: 'Female', mobile: '+91 90441 55220', email: 'f.sheikh@example.com', address: '9 Mill Road, Singanallur, Coimbatore 641005', abhaId: '34-1187-0043-9921', createdAt: daysAgo(260) }),
-    patient({ uhid: 'SHRI-0129904', name: 'Ravi Shankar', age: 29, sex: 'Male', mobile: '+91 99520 61873', address: '8 Kalingarayan Street, Ram Nagar, Coimbatore 641009', createdAt: minutesAgo(20) }),
+    patient({ uhid: 'ISH-0091133', name: 'R. Lakshmanan', nameNative: 'ஆர். லக்ஷ்மணன்', age: 58, sex: 'Male', mobile: '+91 98432 11987', address: '44 Gandhi Road, Peelamedu, Coimbatore 641004', abhaId: 'lakshmanan.r@abdm', aliases: ['laxmanan r', 'laxmanan'], createdAt: daysAgo(200) }),
+    patient({ uhid: 'ISH-0118934', name: 'Gopal Krishnan', nameNative: 'கோபால் கிருஷ்ணன்', age: 67, sex: 'Male', mobile: '+91 94433 50871', address: '3 Nehru Street, Ramanathapuram, Coimbatore 641045', createdAt: daysAgo(32) }),
+    patient({ uhid: 'ISH-0120338', name: 'Sunita Rao', age: 47, sex: 'Female', mobile: '+91 98860 20114', address: '3 Trichy Road, Sungam, Coimbatore 641045', createdAt: daysAgo(30) }),
+    patient({ uhid: 'ISH-0117760', name: 'Harish Chandran', nameNative: 'ഹരീഷ് ചന്ദ്രൻ', age: 44, sex: 'Male', mobile: '+91 95669 04218', email: 'harish.c@example.com', address: '27 Thadagam Road, Vadavalli, Coimbatore 641041', abhaId: '71-2093-5518-4402', createdAt: daysAgo(35) }),
+    patient({ uhid: 'ISH-0124106', name: 'Arjun Prakash', age: 26, sex: 'Male', mobile: '+91 90807 44562', email: 'arjun.prakash@example.com', address: '62 DB Road, R.S. Puram, Coimbatore 641002', abhaId: 'arjun.prakash@abdm', createdAt: daysAgo(12) }),
+    patient({ uhid: 'ISH-0078812', name: 'Fatima Sheikh', nameNative: 'فاطمہ شیخ', age: 41, sex: 'Female', mobile: '+91 90441 55220', email: 'f.sheikh@example.com', address: '9 Mill Road, Singanallur, Coimbatore 641005', abhaId: '34-1187-0043-9921', createdAt: daysAgo(260) }),
+    patient({ uhid: 'ISH-0129904', name: 'Ravi Shankar', age: 29, sex: 'Male', mobile: '+91 99520 61873', address: '8 Kalingarayan Street, Ram Nagar, Coimbatore 641009', createdAt: minutesAgo(20) }),
 
     // Booked for later today
-    patient({ uhid: 'SHRI-0114479', name: 'Lakshmi Narayanan', nameNative: 'லட்சுமி நாராயணன்', age: 54, sex: 'Female', mobile: '+91 94860 15532', address: '11 Avarampalayam Road, Coimbatore 641006', abhaId: 'lakshmi.n@abdm', createdAt: daysAgo(45) }),
-    patient({ uhid: 'SHRI-0125311', name: 'Deepa Krishnan', nameNative: 'தீபா கிருஷ்ணன்', age: 33, sex: 'Female', mobile: '+91 98653 27740', address: '45 Sowripalayam Road, Coimbatore 641028', createdAt: daysAgo(2) }),
-    patient({ uhid: 'SHRI-0129902', name: 'Nisha Varghese', nameNative: 'നിഷ വർഗീസ്', age: 31, sex: 'Female', mobile: '+91 97455 80213', email: 'nisha.v@example.com', address: '4 Lawley Road, Coimbatore 641003', createdAt: minutesAgo(75) }),
+    patient({ uhid: 'ISH-0114479', name: 'Lakshmi Narayanan', nameNative: 'லட்சுமி நாராயணன்', age: 54, sex: 'Female', mobile: '+91 94860 15532', address: '11 Avarampalayam Road, Coimbatore 641006', abhaId: 'lakshmi.n@abdm', createdAt: daysAgo(45) }),
+    patient({ uhid: 'ISH-0125311', name: 'Deepa Krishnan', nameNative: 'தீபா கிருஷ்ணன்', age: 33, sex: 'Female', mobile: '+91 98653 27740', address: '45 Sowripalayam Road, Coimbatore 641028', createdAt: daysAgo(2) }),
+    patient({ uhid: 'ISH-0129902', name: 'Nisha Varghese', nameNative: 'നിഷ വർഗീസ്', age: 31, sex: 'Female', mobile: '+91 97455 80213', email: 'nisha.v@example.com', address: '4 Lawley Road, Coimbatore 641003', createdAt: minutesAgo(75) }),
     // Duplicate of R. Lakshmanan: same mobile, transliterated name, registered
     // again today. getPossibleDuplicates() finds this from the data itself.
-    patient({ uhid: 'SHRI-0129903', name: 'Laxmanan R', age: 58, sex: 'Male', mobile: '+91 98432 11987', address: '44 Gandhi Road, Peelamedu, Coimbatore 641004', createdAt: minutesAgo(52) }),
+    patient({ uhid: 'ISH-0129903', name: 'Laxmanan R', age: 58, sex: 'Male', mobile: '+91 98432 11987', address: '44 Gandhi Road, Peelamedu, Coimbatore 641004', createdAt: minutesAgo(52) }),
 
     // Dr. Vikram Das's full day
-    patient({ uhid: 'SHRI-0057164', name: 'Senthil Kumar', nameNative: 'செந்தில் குமார்', age: 49, sex: 'Male', mobile: '+91 98944 10273', address: '22 Masakalipalayam Road, Peelamedu, Coimbatore 641004', abhaId: 'senthil.k@abdm', aliases: ['senthilkumar'], createdAt: daysAgo(330) }),
-    patient({ uhid: 'SHRI-0063390', name: 'Meenakshi Sundaram', nameNative: 'மீனாட்சி சுந்தரம்', age: 62, sex: 'Female', mobile: '+91 94421 88306', address: '9 Sarojini Street, Ram Nagar, Coimbatore 641009', createdAt: daysAgo(300) }),
-    patient({ uhid: 'SHRI-0083041', name: 'Prakash Rao', nameNative: 'ಪ್ರಕಾಶ್ ರಾವ್', age: 57, sex: 'Male', mobile: '+91 98450 63117', email: 'prakash.rao@example.com', address: '16 Bharathi Nagar, Ganapathy, Coimbatore 641006', abhaId: '56-3301-7745-1208', createdAt: daysAgo(240) }),
-    patient({ uhid: 'SHRI-0087576', name: 'Geetha Raman', nameNative: 'கீதா ராமன்', age: 50, sex: 'Female', mobile: '+91 99940 27165', address: '2 Thiruvenkatasamy Road, R.S. Puram, Coimbatore 641002', abhaId: 'geetha.raman@abdm', createdAt: daysAgo(220) }),
-    patient({ uhid: 'SHRI-0095218', name: 'Shabana Begum', nameNative: 'شبانہ بیگم', age: 46, sex: 'Female', mobile: '+91 90037 41129', address: '7 Ukkadam Main Road, Coimbatore 641001', createdAt: daysAgo(170) }),
-    patient({ uhid: 'SHRI-0098647', name: 'S. Kumaravel', nameNative: 'எஸ். குமரவேல்', age: 55, sex: 'Male', mobile: '+91 97877 52310', address: '40 Mettupalayam Road, Thudiyalur, Coimbatore 641034', createdAt: daysAgo(150) }),
-    patient({ uhid: 'SHRI-0108815', name: 'Imran Basha', nameNative: 'عمران باشا', age: 41, sex: 'Male', mobile: '+91 98946 77021', address: '12 Karumbukadai Main Road, Coimbatore 641008', abhaId: 'imran.basha@abdm', createdAt: daysAgo(70) }),
-    patient({ uhid: 'SHRI-0116023', name: 'Uma Maheswari', nameNative: 'ఉమా మహేశ్వరి', age: 36, sex: 'Female', mobile: '+91 93453 60948', email: 'uma.m@example.com', address: '18 Kovaipudur Main Road, Coimbatore 641042', abhaId: '88-5512-0937-6634', createdAt: daysAgo(40) }),
-    patient({ uhid: 'SHRI-0048305', name: 'Joseph Thomas', nameNative: 'ജോസഫ് തോമസ്', age: 68, sex: 'Male', mobile: '+91 94473 50127', address: '6 Church Road, Podanur, Coimbatore 641023', createdAt: daysAgo(380) }),
+    patient({ uhid: 'ISH-0057164', name: 'Senthil Kumar', nameNative: 'செந்தில் குமார்', age: 49, sex: 'Male', mobile: '+91 98944 10273', address: '22 Masakalipalayam Road, Peelamedu, Coimbatore 641004', abhaId: 'senthil.k@abdm', aliases: ['senthilkumar'], createdAt: daysAgo(330) }),
+    patient({ uhid: 'ISH-0063390', name: 'Meenakshi Sundaram', nameNative: 'மீனாட்சி சுந்தரம்', age: 62, sex: 'Female', mobile: '+91 94421 88306', address: '9 Sarojini Street, Ram Nagar, Coimbatore 641009', createdAt: daysAgo(300) }),
+    patient({ uhid: 'ISH-0083041', name: 'Prakash Rao', nameNative: 'ಪ್ರಕಾಶ್ ರಾವ್', age: 57, sex: 'Male', mobile: '+91 98450 63117', email: 'prakash.rao@example.com', address: '16 Bharathi Nagar, Ganapathy, Coimbatore 641006', abhaId: '56-3301-7745-1208', createdAt: daysAgo(240) }),
+    patient({ uhid: 'ISH-0087576', name: 'Geetha Raman', nameNative: 'கீதா ராமன்', age: 50, sex: 'Female', mobile: '+91 99940 27165', address: '2 Thiruvenkatasamy Road, R.S. Puram, Coimbatore 641002', abhaId: 'geetha.raman@abdm', createdAt: daysAgo(220) }),
+    patient({ uhid: 'ISH-0095218', name: 'Shabana Begum', nameNative: 'شبانہ بیگم', age: 46, sex: 'Female', mobile: '+91 90037 41129', address: '7 Ukkadam Main Road, Coimbatore 641001', createdAt: daysAgo(170) }),
+    patient({ uhid: 'ISH-0098647', name: 'S. Kumaravel', nameNative: 'எஸ். குமரவேல்', age: 55, sex: 'Male', mobile: '+91 97877 52310', address: '40 Mettupalayam Road, Thudiyalur, Coimbatore 641034', createdAt: daysAgo(150) }),
+    patient({ uhid: 'ISH-0108815', name: 'Imran Basha', nameNative: 'عمران باشا', age: 41, sex: 'Male', mobile: '+91 98946 77021', address: '12 Karumbukadai Main Road, Coimbatore 641008', abhaId: 'imran.basha@abdm', createdAt: daysAgo(70) }),
+    patient({ uhid: 'ISH-0116023', name: 'Uma Maheswari', nameNative: 'ఉమా మహేశ్వరి', age: 36, sex: 'Female', mobile: '+91 93453 60948', email: 'uma.m@example.com', address: '18 Kovaipudur Main Road, Coimbatore 641042', abhaId: '88-5512-0937-6634', createdAt: daysAgo(40) }),
+    patient({ uhid: 'ISH-0048305', name: 'Joseph Thomas', nameNative: 'ജോസഫ് തോമസ്', age: 68, sex: 'Male', mobile: '+91 94473 50127', address: '6 Church Road, Podanur, Coimbatore 641023', createdAt: daysAgo(380) }),
 
     // Discharged
-    patient({ uhid: 'SHRI-0052719', name: 'Saraswathi Ammal', nameNative: 'சரஸ்வதி அம்மாள்', age: 76, sex: 'Female', mobile: '+91 98425 66018', address: '25 Vysial Street, Town Hall, Coimbatore 641001', createdAt: daysAgo(350) }),
-    patient({ uhid: 'SHRI-0125584', name: 'Naveen Chandra', age: 34, sex: 'Male', mobile: '+91 96007 18233', address: '91 Nanjundapuram Road, Coimbatore 641036', abhaId: 'naveen.chandra@abdm', createdAt: hoursAgo(23) }),
+    patient({ uhid: 'ISH-0052719', name: 'Saraswathi Ammal', nameNative: 'சரஸ்வதி அம்மாள்', age: 76, sex: 'Female', mobile: '+91 98425 66018', address: '25 Vysial Street, Town Hall, Coimbatore 641001', createdAt: daysAgo(350) }),
+    patient({ uhid: 'ISH-0125584', name: 'Naveen Chandra', age: 34, sex: 'Male', mobile: '+91 96007 18233', address: '91 Nanjundapuram Road, Coimbatore 641036', abhaId: 'naveen.chandra@abdm', createdAt: hoursAgo(23) }),
 
     // Registered a few minutes ago — nothing else yet
-    patient({ uhid: 'SHRI-0129905', name: 'Pooja Sharma', nameNative: 'पूजा शर्मा', age: 24, sex: 'Female', mobile: '+91 99766 31245', email: 'pooja.sharma@example.com', address: '33 Avinashi Road, Hope College, Coimbatore 641004', createdAt: minutesAgo(8) }),
+    patient({ uhid: 'ISH-0129905', name: 'Pooja Sharma', nameNative: 'पूजा शर्मा', age: 24, sex: 'Female', mobile: '+91 99766 31245', email: 'pooja.sharma@example.com', address: '33 Avinashi Road, Hope College, Coimbatore 641004', createdAt: minutesAgo(8) }),
   ]
 
   // Longitudinal records — registered from 2022 on, with visits since, and
@@ -784,56 +784,56 @@ export function createSeedState(): AppState {
 
 
   // History — earlier encounters, so the timeline has a past.
-  book({ patientId: 'SHRI-0091133', providerId: 'dr-arun-kumar', day: -21, slotIndex: 4, status: 'Completed', method: 'Card' })
-  book({ patientId: 'SHRI-0078812', providerId: 'dr-priya-nair', day: -45, slotIndex: 1, status: 'Completed', method: 'UPI' })
-  book({ patientId: 'SHRI-0102234', providerId: 'dr-priya-nair', day: -30, slotIndex: 3, status: 'Completed', method: 'UPI' })
-  book({ patientId: 'SHRI-0057164', providerId: 'dr-vikram-das', day: -30, slotIndex: 3, status: 'Completed', method: 'UPI' })
-  book({ patientId: 'SHRI-0044120', providerId: 'dr-arun-kumar', day: -14, slotIndex: 2, status: 'Completed', method: 'UPI' })
-  book({ patientId: 'SHRI-0048305', providerId: 'dr-vikram-das', day: -7, slotIndex: 4, status: 'Completed', method: 'Card' })
-  book({ patientId: 'SHRI-0122871', providerId: 'dr-meera-shah', day: -7, slotIndex: 2, status: 'Completed', method: 'UPI', reason: 'Second opinion' })
-  book({ patientId: 'SHRI-0069958', providerId: 'dr-priya-nair', day: -5, slotIndex: 2, status: 'Completed', method: 'Card' })
-  book({ patientId: 'SHRI-0052719', providerId: 'dr-rahul-menon', day: -5, slotIndex: 1, status: 'Completed', method: 'UPI' })
-  book({ patientId: 'SHRI-0106392', providerId: 'dr-vikram-das', day: -3, slotIndex: 2, status: 'Completed', method: 'UPI' })
+  book({ patientId: 'ISH-0091133', providerId: 'dr-arun-kumar', day: -21, slotIndex: 4, status: 'Completed', method: 'Card' })
+  book({ patientId: 'ISH-0078812', providerId: 'dr-priya-nair', day: -45, slotIndex: 1, status: 'Completed', method: 'UPI' })
+  book({ patientId: 'ISH-0102234', providerId: 'dr-priya-nair', day: -30, slotIndex: 3, status: 'Completed', method: 'UPI' })
+  book({ patientId: 'ISH-0057164', providerId: 'dr-vikram-das', day: -30, slotIndex: 3, status: 'Completed', method: 'UPI' })
+  book({ patientId: 'ISH-0044120', providerId: 'dr-arun-kumar', day: -14, slotIndex: 2, status: 'Completed', method: 'UPI' })
+  book({ patientId: 'ISH-0048305', providerId: 'dr-vikram-das', day: -7, slotIndex: 4, status: 'Completed', method: 'Card' })
+  book({ patientId: 'ISH-0122871', providerId: 'dr-meera-shah', day: -7, slotIndex: 2, status: 'Completed', method: 'UPI', reason: 'Second opinion' })
+  book({ patientId: 'ISH-0069958', providerId: 'dr-priya-nair', day: -5, slotIndex: 2, status: 'Completed', method: 'Card' })
+  book({ patientId: 'ISH-0052719', providerId: 'dr-rahul-menon', day: -5, slotIndex: 1, status: 'Completed', method: 'UPI' })
+  book({ patientId: 'ISH-0106392', providerId: 'dr-vikram-das', day: -3, slotIndex: 2, status: 'Completed', method: 'UPI' })
   // Booked with Dr. Rahul Menon, then cancelled by the patient (travelling)
   // — the fee is kept.
   book({
-    patientId: 'SHRI-0095218', providerId: 'dr-rahul-menon', day: -10, slotIndex: 2, status: 'Cancelled', method: 'UPI',
+    patientId: 'ISH-0095218', providerId: 'dr-rahul-menon', day: -10, slotIndex: 2, status: 'Cancelled', method: 'UPI',
     bookedAt: daysAgo(12), cancel: { by: 'Patient', reason: 'Patient travelling', at: daysAgo(11) },
   })
   // Booked with Dr. Meera Shah, who then could not attend — cancelled as
   // doctor unavailable, so the fee went back to the card it came from.
   book({
-    patientId: 'SHRI-0063390', providerId: 'dr-meera-shah', day: -2, slotIndex: 2, status: 'Cancelled', method: 'Card',
+    patientId: 'ISH-0063390', providerId: 'dr-meera-shah', day: -2, slotIndex: 2, status: 'Cancelled', method: 'Card',
     bookedAt: daysAgo(3), cancel: { by: 'Doctor', reason: 'Dr. Meera Shah unavailable', at: daysAgo(3) + 3 * HOUR },
   })
 
   // Today — Dr. Arun Kumar: one seen this morning (admission advised), one
   // called in now, one still to come.
-  book({ patientId: 'SHRI-0111045', providerId: 'dr-arun-kumar', offset: -7, status: 'Completed', method: 'UPI', fallbackDay: -1, slotIndex: 3, reason: 'Review with reports' })
-  book({ patientId: 'SHRI-0091133', providerId: 'dr-arun-kumar', offset: -2, status: 'Checked-in', method: 'Card', arrivedAt: minutesAgo(24), tokenStatus: 'Called', reason: 'Follow-up' })
-  book({ patientId: 'SHRI-0125311', providerId: 'dr-arun-kumar', offset: 2, status: 'Confirmed', method: 'UPI', bookedAt: daysAgo(2) + 5 * MINUTE, reason: 'First consultation' })
+  book({ patientId: 'ISH-0111045', providerId: 'dr-arun-kumar', offset: -7, status: 'Completed', method: 'UPI', fallbackDay: -1, slotIndex: 3, reason: 'Review with reports' })
+  book({ patientId: 'ISH-0091133', providerId: 'dr-arun-kumar', offset: -2, status: 'Checked-in', method: 'Card', arrivedAt: minutesAgo(24), tokenStatus: 'Called', reason: 'Follow-up' })
+  book({ patientId: 'ISH-0125311', providerId: 'dr-arun-kumar', offset: 2, status: 'Confirmed', method: 'UPI', bookedAt: daysAgo(2) + 5 * MINUTE, reason: 'First consultation' })
 
   // Dr. Rahul Menon — behind schedule: patients checked in for slots already
   // past are still waiting, so the delay is derivable.
-  book({ patientId: 'SHRI-0118934', providerId: 'dr-rahul-menon', offset: -4, status: 'Checked-in', method: 'UPI', arrivedAt: minutesAgo(52) })
-  book({ patientId: 'SHRI-0120338', providerId: 'dr-rahul-menon', offset: -1, status: 'Checked-in', method: 'Card', arrivedAt: minutesAgo(16) })
-  book({ patientId: 'SHRI-0129903', providerId: 'dr-rahul-menon', offset: 3, status: 'Confirmed', method: 'UPI' })
+  book({ patientId: 'ISH-0118934', providerId: 'dr-rahul-menon', offset: -4, status: 'Checked-in', method: 'UPI', arrivedAt: minutesAgo(52) })
+  book({ patientId: 'ISH-0120338', providerId: 'dr-rahul-menon', offset: -1, status: 'Checked-in', method: 'Card', arrivedAt: minutesAgo(16) })
+  book({ patientId: 'ISH-0129903', providerId: 'dr-rahul-menon', offset: 3, status: 'Confirmed', method: 'UPI' })
 
   // Dr. Priya Nair — a no-show, one seen, a new patient booked for her next
   // free slot, and a review still to come by teleconsult.
-  book({ patientId: 'SHRI-0078812', providerId: 'dr-priya-nair', offset: -6, status: 'No-show', method: 'Card', bookedAt: daysAgo(1) })
-  book({ patientId: 'SHRI-0124106', providerId: 'dr-priya-nair', offset: -3, status: 'Completed', method: 'UPI', fallbackDay: -1, slotIndex: 5 })
-  book({ patientId: 'SHRI-0114479', providerId: 'dr-priya-nair', offset: 4, status: 'Confirmed', method: 'Card', bookedAt: daysAgo(1) + 2 * HOUR, reason: 'Review with reports', mode: 'Teleconsult' })
+  book({ patientId: 'ISH-0078812', providerId: 'dr-priya-nair', offset: -6, status: 'No-show', method: 'Card', bookedAt: daysAgo(1) })
+  book({ patientId: 'ISH-0124106', providerId: 'dr-priya-nair', offset: -3, status: 'Completed', method: 'UPI', fallbackDay: -1, slotIndex: 5 })
+  book({ patientId: 'ISH-0114479', providerId: 'dr-priya-nair', offset: 4, status: 'Confirmed', method: 'Card', bookedAt: daysAgo(1) + 2 * HOUR, reason: 'Review with reports', mode: 'Teleconsult' })
   // Registered this morning and booked straight into her next free slot.
-  book({ patientId: 'SHRI-0129904', providerId: 'dr-priya-nair', offset: 0, status: 'Confirmed', method: 'UPI', reason: 'First consultation' })
+  book({ patientId: 'ISH-0129904', providerId: 'dr-priya-nair', offset: 0, status: 'Confirmed', method: 'UPI', reason: 'First consultation' })
 
   // Dr. Ananya Rao — on a break, with one patient waiting and one after it.
-  book({ patientId: 'SHRI-0117760', providerId: 'dr-ananya-rao', offset: -1, status: 'Checked-in', method: 'UPI', arrivedAt: minutesAgo(26) })
-  book({ patientId: 'SHRI-0129902', providerId: 'dr-ananya-rao', offset: 1, status: 'Confirmed', method: 'UPI', reason: 'First consultation' })
+  book({ patientId: 'ISH-0117760', providerId: 'dr-ananya-rao', offset: -1, status: 'Checked-in', method: 'UPI', arrivedAt: minutesAgo(26) })
+  book({ patientId: 'ISH-0129902', providerId: 'dr-ananya-rao', offset: 1, status: 'Confirmed', method: 'UPI', reason: 'First consultation' })
 
   // Dr. Vikram Das — every slot taken: the morning's patients seen, the rest
   // booked and paid; nobody booked twice.
-  const vikramDay = ['SHRI-0057164', 'SHRI-0063390', 'SHRI-0083041', 'SHRI-0087576', 'SHRI-0095218', 'SHRI-0098647', 'SHRI-0108815', 'SHRI-0116023', 'SHRI-0048305']
+  const vikramDay = ['ISH-0057164', 'ISH-0063390', 'ISH-0083041', 'ISH-0087576', 'ISH-0095218', 'ISH-0098647', 'ISH-0108815', 'ISH-0116023', 'ISH-0048305']
   slotsOf('dr-vikram-das').forEach((slot, index) => {
     const patientId = vikramDay[index]
     if (!patientId) return
@@ -845,26 +845,26 @@ export function createSeedState(): AppState {
   // Uma was booked with Dr. Meera Shah for today; the doctor's leave moved
   // her to tomorrow at the same fee.
   book({
-    patientId: 'SHRI-0116023', providerId: 'dr-meera-shah', day: 1, slotIndex: 3, status: 'Confirmed', method: 'Card', bookedAt: daysAgo(4), reason: 'Bring the X-ray report',
+    patientId: 'ISH-0116023', providerId: 'dr-meera-shah', day: 1, slotIndex: 3, status: 'Confirmed', method: 'Card', bookedAt: daysAgo(4), reason: 'Bring the X-ray report',
     moved: { fromDay: 0, fromSlotIndex: 3, by: 'Doctor', note: 'Dr. Meera Shah on leave', at: daysAgo(2) },
   })
   // Saraswathi asked to see the diabetologist instead of Dr. Rahul Menon —
   // she paid the ₹100 difference when the booking was moved.
   book({
-    patientId: 'SHRI-0052719', providerId: 'dr-vikram-das', day: 2, slotIndex: 2, status: 'Confirmed', method: 'UPI', bookedAt: daysAgo(3), reason: 'Sugar review',
+    patientId: 'ISH-0052719', providerId: 'dr-vikram-das', day: 2, slotIndex: 2, status: 'Confirmed', method: 'UPI', bookedAt: daysAgo(3), reason: 'Sugar review',
     moved: { fromProviderId: 'dr-rahul-menon', fromDay: 2, fromSlotIndex: 4, by: 'Patient', note: 'Asked to see the diabetologist', at: daysAgo(1) },
   })
-  book({ patientId: 'SHRI-0057164', providerId: 'dr-vikram-das', day: 7, slotIndex: 1, status: 'Confirmed', method: 'UPI', bookedAt: minutesAgo(100), reason: 'Follow-up', mode: 'Teleconsult' })
+  book({ patientId: 'ISH-0057164', providerId: 'dr-vikram-das', day: 7, slotIndex: 1, status: 'Confirmed', method: 'UPI', bookedAt: minutesAgo(100), reason: 'Follow-up', mode: 'Teleconsult' })
 
   // The newer doctors — referrals later today from this morning's patients,
   // and visits on the coming days, so their hours read as real.
-  book({ patientId: 'SHRI-0057164', providerId: 'dr-revathi-reddy', offset: 4, status: 'Confirmed', method: 'UPI', bookedAt: minutesAgo(70), reason: 'Referred by Dr. Vikram Das — palpitations' })
-  book({ patientId: 'SHRI-0063390', providerId: 'dr-ashwin-kamath', offset: 3, status: 'Confirmed', method: 'Card', bookedAt: minutesAgo(95), reason: 'Knee pain' })
-  book({ patientId: 'SHRI-0083041', providerId: 'dr-sanjay-iyer', offset: 3, status: 'Confirmed', method: 'UPI', bookedAt: daysAgo(1), reason: 'Tremor review' })
-  book({ patientId: 'SHRI-0087576', providerId: 'dr-farah-ahmed', day: 1, slotIndex: 2, status: 'Confirmed', method: 'UPI', bookedAt: minutesAgo(40), reason: 'Fever follow-up' })
-  book({ patientId: 'SHRI-0098647', providerId: 'dr-suresh-pillai', day: 2, slotIndex: 1, status: 'Confirmed', method: 'Card', bookedAt: daysAgo(1), reason: 'Lower back pain — MRI review' })
-  book({ patientId: 'SHRI-0108815', providerId: 'dr-harish-menon', day: 3, slotIndex: 3, status: 'Confirmed', method: 'UPI', bookedAt: daysAgo(2), reason: 'Breathlessness on exertion' })
-  book({ patientId: 'SHRI-0048305', providerId: 'dr-nandini-hegde', day: 1, slotIndex: 4, status: 'Confirmed', method: 'UPI', bookedAt: minutesAgo(180), reason: 'Neck pain' })
+  book({ patientId: 'ISH-0057164', providerId: 'dr-revathi-reddy', offset: 4, status: 'Confirmed', method: 'UPI', bookedAt: minutesAgo(70), reason: 'Referred by Dr. Vikram Das — palpitations' })
+  book({ patientId: 'ISH-0063390', providerId: 'dr-ashwin-kamath', offset: 3, status: 'Confirmed', method: 'Card', bookedAt: minutesAgo(95), reason: 'Knee pain' })
+  book({ patientId: 'ISH-0083041', providerId: 'dr-sanjay-iyer', offset: 3, status: 'Confirmed', method: 'UPI', bookedAt: daysAgo(1), reason: 'Tremor review' })
+  book({ patientId: 'ISH-0087576', providerId: 'dr-farah-ahmed', day: 1, slotIndex: 2, status: 'Confirmed', method: 'UPI', bookedAt: minutesAgo(40), reason: 'Fever follow-up' })
+  book({ patientId: 'ISH-0098647', providerId: 'dr-suresh-pillai', day: 2, slotIndex: 1, status: 'Confirmed', method: 'Card', bookedAt: daysAgo(1), reason: 'Lower back pain — MRI review' })
+  book({ patientId: 'ISH-0108815', providerId: 'dr-harish-menon', day: 3, slotIndex: 3, status: 'Confirmed', method: 'UPI', bookedAt: daysAgo(2), reason: 'Breathlessness on exertion' })
+  book({ patientId: 'ISH-0048305', providerId: 'dr-nandini-hegde', day: 1, slotIndex: 4, status: 'Confirmed', method: 'UPI', bookedAt: minutesAgo(180), reason: 'Neck pain' })
 
   // The longitudinal patients' visits: earlier days first, each in the
   // doctor's first free slot of that day, then today's visit.
@@ -997,24 +997,24 @@ export function createSeedState(): AppState {
 
   // Self-pay patients pay the first day when admitted, and the rest as it
   // accrues; insured, TPA and corporate stays are settled at discharge.
-  billStay('SHRI-0048305')
-  billStay('SHRI-0069958', {
+  billStay('ISH-0048305')
+  billStay('ISH-0069958', {
     collections: [
-      { amount: firstDay('SHRI-0069958'), method: 'UPI', at: afterAdmission('SHRI-0069958', 5) },
-      { amount: 10000, method: 'Card', at: afterAdmission('SHRI-0069958', 50 * 60) },
+      { amount: firstDay('ISH-0069958'), method: 'UPI', at: afterAdmission('ISH-0069958', 5) },
+      { amount: 10000, method: 'Card', at: afterAdmission('ISH-0069958', 50 * 60) },
     ],
   })
-  billStay('SHRI-0052719', {
+  billStay('ISH-0052719', {
     collections: [
-      { amount: firstDay('SHRI-0052719'), method: 'UPI', at: afterAdmission('SHRI-0052719', 5) },
-      { amount: 4000, method: 'Card', at: (stayOf('SHRI-0052719').dischargedAt ?? now) - 15 * MINUTE },
+      { amount: firstDay('ISH-0052719'), method: 'UPI', at: afterAdmission('ISH-0052719', 5) },
+      { amount: 4000, method: 'Card', at: (stayOf('ISH-0052719').dischargedAt ?? now) - 15 * MINUTE },
     ],
   })
-  billStay('SHRI-0106392')
-  billStay('SHRI-0044120', { collections: [{ amount: firstDay('SHRI-0044120'), method: 'Card', at: afterAdmission('SHRI-0044120', 5) }] })
-  billStay('SHRI-0125584', { collections: [{ amount: firstDay('SHRI-0125584'), method: 'UPI', at: afterAdmission('SHRI-0125584', 10) }] })
-  billStay('SHRI-0125590', { failed: [{ amount: 5000, method: 'UPI', reason: 'Payment not received', at: minutesAgo(45) }] })
-  billStay('SHRI-0102234')
+  billStay('ISH-0106392')
+  billStay('ISH-0044120', { collections: [{ amount: firstDay('ISH-0044120'), method: 'Card', at: afterAdmission('ISH-0044120', 5) }] })
+  billStay('ISH-0125584', { collections: [{ amount: firstDay('ISH-0125584'), method: 'UPI', at: afterAdmission('ISH-0125584', 10) }] })
+  billStay('ISH-0125590', { failed: [{ amount: 5000, method: 'UPI', reason: 'Payment not received', at: minutesAgo(45) }] })
+  billStay('ISH-0102234')
   // Earlier stays are over and settled in full — by the patient at the counter,
   // or by the insurer, TPA or employer at discharge.
   for (const h of PATIENT_HISTORY) {
@@ -1023,7 +1023,7 @@ export function createSeedState(): AppState {
     const settled = sumItems(admissionBillItems(stay.roomType ?? 'General', stayDays(stay.admittedAt ?? stay.createdAt, stay.dischargedAt ?? now)))
     billStay(h.uhid, { collections: [{ amount: settled, method: stay.paymentType === 'Self Pay' ? 'UPI' : 'Insurance/TPA', at: (stay.dischargedAt ?? now) - 15 * MINUTE }] })
   }
-  billStay('SHRI-0129901', { collections: [{ amount: firstDay('SHRI-0129901'), method: 'UPI', at: afterAdmission('SHRI-0129901', 10) }] })
+  billStay('ISH-0129901', { collections: [{ amount: firstDay('ISH-0129901'), method: 'UPI', at: afterAdmission('ISH-0129901', 10) }] })
 
   // Every pass is checked before it is printed. One visitor pass per
   // inpatient, held by the attendant recorded at admission — returned at
@@ -1062,10 +1062,10 @@ export function createSeedState(): AppState {
   logAt(visitingDoctorAt, 'Guest pass printed', 'GP/VDR/105 · Anand Krishnan · for Dr. Arun Kumar · confirmed with the host')
   logAt(engineerAt, 'Guest pass printed', 'GP/STF/106 · Suresh Babu · for Prakash Natarajan · confirmed with the host')
   const guestPasses: GuestPass[] = [
-    visitorPass(101, 'SHRI-0052719', afterAdmission('SHRI-0052719', 30), stayOf('SHRI-0052719').dischargedAt),
-    visitorPass(102, 'SHRI-0069958', daysAgo(2) - 2 * HOUR, null),
-    visitorPass(103, 'SHRI-0044120', hoursAgo(5), null),
-    visitorPass(104, 'SHRI-0125590', hoursAgo(3), null),
+    visitorPass(101, 'ISH-0052719', afterAdmission('ISH-0052719', 30), stayOf('ISH-0052719').dischargedAt),
+    visitorPass(102, 'ISH-0069958', daysAgo(2) - 2 * HOUR, null),
+    visitorPass(103, 'ISH-0044120', hoursAgo(5), null),
+    visitorPass(104, 'ISH-0125590', hoursAgo(3), null),
     {
       passId: 'GP/VDR/105',
       type: 'Visiting doctor',
@@ -1111,25 +1111,25 @@ export function createSeedState(): AppState {
   const mlcRecords: MlcRecord[] = [
     {
       mlcId: 'MLC/0001',
-      patientId: 'SHRI-0125584',
-      patientName: patientOf('SHRI-0125584').name,
+      patientId: 'ISH-0125584',
+      patientName: patientOf('ISH-0125584').name,
       category: 'Road traffic accident',
       broughtBy: 'Bystander',
       policeStation: 'Gandhipuram Police Station',
-      incidentAt: localDateTime(afterAdmission('SHRI-0125584', -40)),
-      registeredAt: afterAdmission('SHRI-0125584', 5),
+      incidentAt: localDateTime(afterAdmission('ISH-0125584', -40)),
+      registeredAt: afterAdmission('ISH-0125584', 5),
       intimationSent: true,
-      acknowledgedAt: afterAdmission('SHRI-0125584', 150),
+      acknowledgedAt: afterAdmission('ISH-0125584', 150),
     },
     {
       mlcId: 'MLC/0002',
-      patientId: 'SHRI-0129901',
-      patientName: patientOf('SHRI-0129901').name,
+      patientId: 'ISH-0129901',
+      patientName: patientOf('ISH-0129901').name,
       category: 'Road traffic accident',
       broughtBy: 'Ambulance',
       policeStation: 'Saravanampatti Police Station',
-      incidentAt: localDateTime(afterAdmission('SHRI-0129901', -35)),
-      registeredAt: afterAdmission('SHRI-0129901', 5),
+      incidentAt: localDateTime(afterAdmission('ISH-0129901', -35)),
+      registeredAt: afterAdmission('ISH-0129901', 5),
       intimationSent: true,
       acknowledgedAt: null,
     },
@@ -1141,12 +1141,12 @@ export function createSeedState(): AppState {
 
   // Estimates: a knee X-ray paid at the counter (billed as it was paid), and
   // an ECG + echo quoted after Arjun's cardiology visit, not yet paid.
-  const quotedAt = Math.min((visitEnd('SHRI-0124106') ?? minutesAgo(30)) + 10 * MINUTE, now - 3 * MINUTE)
+  const quotedAt = Math.min((visitEnd('ISH-0124106') ?? minutesAgo(30)) + 10 * MINUTE, now - 3 * MINUTE)
   const estimates: Estimate[] = [
     {
       estimateId: 'EST/00001',
-      patientId: 'SHRI-0116023',
-      patientName: patientOf('SHRI-0116023').name,
+      patientId: 'ISH-0116023',
+      patientName: patientOf('ISH-0116023').name,
       items: [{ code: 'INV-XR-KNEE', name: 'X-Ray Knee (AP/Lat)', rate: 650, quantity: 1 }],
       total: 650,
       payer: 'Self-pay',
@@ -1156,8 +1156,8 @@ export function createSeedState(): AppState {
     },
     {
       estimateId: 'EST/00002',
-      patientId: 'SHRI-0124106',
-      patientName: patientOf('SHRI-0124106').name,
+      patientId: 'ISH-0124106',
+      patientName: patientOf('ISH-0124106').name,
       items: [
         { code: 'INV-ECG', name: 'ECG', rate: 350, quantity: 1 },
         { code: 'INV-ECHO', name: '2D Echocardiogram', rate: 2400, quantity: 1 },
@@ -1170,7 +1170,7 @@ export function createSeedState(): AppState {
     },
   ]
   pushBill({
-    patientId: 'SHRI-0116023',
+    patientId: 'ISH-0116023',
     items: [{ code: 'INV-XR-KNEE', description: 'X-Ray Knee (AP/Lat)', amount: 650 }],
     createdAt: daysAgo(2) + 12 * MINUTE,
     estimateId: 'EST/00001',
@@ -1211,11 +1211,11 @@ export function createSeedState(): AppState {
 
   // Profiles the desk opens most often — seeds the search box's "Most opened".
   const patientOpens: AppState['patientOpens'] = {
-    'SHRI-0091133': { count: 7, lastOpenedAt: minutesAgo(30) },
-    'SHRI-0125590': { count: 6, lastOpenedAt: minutesAgo(50) },
-    'SHRI-0044120': { count: 5, lastOpenedAt: hoursAgo(2) },
-    'SHRI-0069958': { count: 4, lastOpenedAt: hoursAgo(5) },
-    'SHRI-0078812': { count: 3, lastOpenedAt: daysAgo(1) },
+    'ISH-0091133': { count: 7, lastOpenedAt: minutesAgo(30) },
+    'ISH-0125590': { count: 6, lastOpenedAt: minutesAgo(50) },
+    'ISH-0044120': { count: 5, lastOpenedAt: hoursAgo(2) },
+    'ISH-0069958': { count: 4, lastOpenedAt: hoursAgo(5) },
+    'ISH-0078812': { count: 3, lastOpenedAt: daysAgo(1) },
   }
 
   // Rate card for the enquiry/estimate desk. A real deployment reads this

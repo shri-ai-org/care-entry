@@ -84,7 +84,7 @@ const EMG = { logesh: 'dr-logesh', arvind: 'dr-arvind-shetty', swetha: 'dr-sweth
 export const PATIENT_HISTORY: PatientHistorySeed[] = [
   // ------------------------------------------------ long history, here today
   {
-    uhid: 'SHRI-0031042', name: 'Gopinath Rangasamy', nameNative: 'கோபிநாத் ரங்கசாமி', age: 67, sex: 'Male', abhaId: 'gopinath.r@abdm', registered: '2022-02-08',
+    uhid: 'ISH-0031042', name: 'Gopinath Rangasamy', nameNative: 'கோபிநாத் ரங்கசாமி', age: 67, sex: 'Male', abhaId: 'gopinath.r@abdm', registered: '2022-02-08',
     visits: [
       { on: '2022-02-08', doctor: GEN.rahul, reason: 'Fever and body ache' },
       { on: '2022-09-14', doctor: GEN.vikram, reason: 'Diabetes screening', status: 'Incomplete' },
@@ -98,7 +98,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     today: { doctor: CAR.harish, reason: 'Breathlessness on climbing stairs', offset: -2, status: 'Checked-in', token: 'Waiting', arrivedMinutesAgo: 35 },
   },
   {
-    uhid: 'SHRI-0031187', name: 'Rukmani Venkatesan', nameNative: 'ருக்மணி வெங்கடேசன்', age: 61, sex: 'Female', registered: '2022-05-17',
+    uhid: 'ISH-0031187', name: 'Rukmani Venkatesan', nameNative: 'ருக்மணி வெங்கடேசன்', age: 61, sex: 'Female', registered: '2022-05-17',
     visits: [
       { on: '2022-05-17', doctor: ORT.meera, reason: 'Right knee pain' },
       { on: '2022-11-29', doctor: ORT.meera, reason: 'Knee pain — X-ray review' },
@@ -111,7 +111,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     today: { doctor: CAR.revathi, reason: 'Follow-up — ECG', offset: -1, status: 'Checked-in', token: 'Called', arrivedMinutesAgo: 22 },
   },
   {
-    uhid: 'SHRI-0031356', name: 'Chandrasekar Pillai', nameNative: 'சந்திரசேகர் பிள்ளை', age: 72, sex: 'Male', registered: '2022-07-25',
+    uhid: 'ISH-0031356', name: 'Chandrasekar Pillai', nameNative: 'சந்திரசேகர் பிள்ளை', age: 72, sex: 'Male', registered: '2022-07-25',
     visits: [
       { on: '2022-07-25', doctor: NEU.arun, reason: 'Tremor in right hand' },
       { on: '2023-01-12', doctor: NEU.arun, reason: 'Tremor — medication review' },
@@ -124,7 +124,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     today: { doctor: NEU.sanjay, reason: 'Review with reports', offset: -3, status: 'Completed' },
   },
   {
-    uhid: 'SHRI-0031521', name: 'Padma Lakshmi', nameNative: 'பத்மா லட்சுமி', age: 58, sex: 'Female', email: 'padma.l@example.com', registered: '2022-10-03',
+    uhid: 'ISH-0031521', name: 'Padma Lakshmi', nameNative: 'பத்மா லட்சுமி', age: 58, sex: 'Female', email: 'padma.l@example.com', registered: '2022-10-03',
     visits: [
       { on: '2022-10-03', doctor: GEN.farah, reason: 'Persistent cough' },
       { on: '2023-04-18', doctor: GEN.rahul, reason: 'Thyroid review' },
@@ -136,7 +136,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     today: { doctor: NSG.suresh, reason: 'Spine follow-up — MRI', offset: 2, status: 'Confirmed' },
   },
   {
-    uhid: 'SHRI-0031684', name: 'Muthu Krishnan', nameNative: 'முத்து கிருஷ்ணன்', age: 54, sex: 'Male', registered: '2023-01-09',
+    uhid: 'ISH-0031684', name: 'Muthu Krishnan', nameNative: 'முத்து கிருஷ்ணன்', age: 54, sex: 'Male', registered: '2023-01-09',
     visits: [
       { on: '2023-01-09', doctor: CAR.priya, reason: 'Chest pain' },
       { on: '2023-01-30', doctor: CAR.priya, reason: 'Stress test review' },
@@ -150,7 +150,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     today: { doctor: CAR.revathi, reason: 'Palpitations — second opinion', offset: -4, status: 'Checked-in', token: 'Waiting', arrivedMinutesAgo: 48 },
   },
   {
-    uhid: 'SHRI-0031790', name: 'Shanthi Subramaniam', nameNative: 'சாந்தி சுப்ரமணியம்', age: 49, sex: 'Female', registered: '2023-03-14',
+    uhid: 'ISH-0031790', name: 'Shanthi Subramaniam', nameNative: 'சாந்தி சுப்ரமணியம்', age: 49, sex: 'Female', registered: '2023-03-14',
     visits: [
       { on: '2023-03-14', doctor: NEU.ananya, reason: 'Recurrent headache' },
       { on: '2023-06-27', doctor: NEU.ananya, reason: 'Migraine — preventive treatment' },
@@ -163,7 +163,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     today: { doctor: NEU.ananya, reason: 'Giddiness — review', offset: 3, status: 'Confirmed' },
   },
   {
-    uhid: 'SHRI-0031902', name: 'Ibrahim Khalil', nameNative: 'ابراہیم خلیل', age: 63, sex: 'Male', registered: '2022-04-19',
+    uhid: 'ISH-0031902', name: 'Ibrahim Khalil', nameNative: 'ابراہیم خلیل', age: 63, sex: 'Male', registered: '2022-04-19',
     visits: [
       { on: '2022-04-19', doctor: GEN.vikram, reason: 'Excessive thirst — sugar check' },
       { on: '2022-08-30', doctor: GEN.vikram, reason: 'Diabetes — insulin started' },
@@ -177,7 +177,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     today: { doctor: GEN.farah, reason: 'Sugar review', offset: -5, status: 'Checked-in', token: 'Waiting', arrivedMinutesAgo: 25 },
   },
   {
-    uhid: 'SHRI-0032015', name: 'Vasantha Kumari', nameNative: 'வசந்தா குமாரி', age: 66, sex: 'Female', abhaId: '62-1180-4457-2093', registered: '2022-12-06',
+    uhid: 'ISH-0032015', name: 'Vasantha Kumari', nameNative: 'வசந்தா குமாரி', age: 66, sex: 'Female', abhaId: '62-1180-4457-2093', registered: '2022-12-06',
     visits: [
       { on: '2022-12-06', doctor: CAR.priya, reason: 'Breathlessness' },
       { on: '2023-05-23', doctor: CAR.priya, reason: 'Echo review' },
@@ -192,7 +192,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
 
   // -------------------------------- many visits over the years, none today
   {
-    uhid: 'SHRI-0032240', name: 'Dhanapal Ramasamy', nameNative: 'தனபால் ராமசாமி', age: 69, sex: 'Male', registered: '2022-01-24',
+    uhid: 'ISH-0032240', name: 'Dhanapal Ramasamy', nameNative: 'தனபால் ராமசாமி', age: 69, sex: 'Male', registered: '2022-01-24',
     visits: [
       { on: '2022-01-24', doctor: GEN.rahul, reason: 'Fatigue and weight loss' },
       { on: '2022-03-08', doctor: GEN.rahul, reason: 'Blood reports review' },
@@ -207,7 +207,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     ],
   },
   {
-    uhid: 'SHRI-0032377', name: 'Amudha Selvaraj', nameNative: 'அமுதா செல்வராஜ்', age: 57, sex: 'Female', registered: '2022-06-13',
+    uhid: 'ISH-0032377', name: 'Amudha Selvaraj', nameNative: 'அமுதா செல்வராஜ்', age: 57, sex: 'Female', registered: '2022-06-13',
     visits: [
       { on: '2022-06-13', doctor: ORT.meera, reason: 'Shoulder pain' },
       { on: '2022-07-04', doctor: ORT.meera, reason: 'Shoulder — physiotherapy plan' },
@@ -220,7 +220,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     ],
   },
   {
-    uhid: 'SHRI-0032498', name: 'Balasubramanian Iyer', nameNative: 'பாலசுப்பிரமணியன் ஐயர்', age: 74, sex: 'Male', registered: '2022-03-02',
+    uhid: 'ISH-0032498', name: 'Balasubramanian Iyer', nameNative: 'பாலசுப்பிரமணியன் ஐயர்', age: 74, sex: 'Male', registered: '2022-03-02',
     visits: [
       { on: '2022-03-02', doctor: NEU.arun, reason: 'Memory lapses' },
       { on: '2022-09-20', doctor: NEU.arun, reason: 'Memory assessment' },
@@ -233,7 +233,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     ],
   },
   {
-    uhid: 'SHRI-0032611', name: 'Nirmala Devi', nameNative: 'நிர்மலா தேவி', age: 52, sex: 'Female', registered: '2023-05-30',
+    uhid: 'ISH-0032611', name: 'Nirmala Devi', nameNative: 'நிர்மலா தேவி', age: 52, sex: 'Female', registered: '2023-05-30',
     visits: [
       { on: '2023-05-30', doctor: GEN.farah, reason: 'Thyroid symptoms' },
       { on: '2023-08-22', doctor: GEN.farah, reason: 'Thyroid review' },
@@ -244,7 +244,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     ],
   },
   {
-    uhid: 'SHRI-0032729', name: 'Kannan Ramalingam', nameNative: 'கண்ணன் ராமலிங்கம்', age: 60, sex: 'Male', registered: '2024-02-05',
+    uhid: 'ISH-0032729', name: 'Kannan Ramalingam', nameNative: 'கண்ணன் ராமலிங்கம்', age: 60, sex: 'Male', registered: '2024-02-05',
     visits: [
       { on: '2024-02-05', doctor: CAR.priya, reason: 'Hypertension' },
       { on: '2024-05-21', doctor: CAR.priya, reason: 'Blood pressure review' },
@@ -254,7 +254,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     ],
   },
   {
-    uhid: 'SHRI-0032843', name: 'Fathima Beevi', nameNative: 'فاطمہ بی بی', age: 45, sex: 'Female', registered: '2023-09-18',
+    uhid: 'ISH-0032843', name: 'Fathima Beevi', nameNative: 'فاطمہ بی بی', age: 45, sex: 'Female', registered: '2023-09-18',
     visits: [
       { on: '2023-09-18', doctor: GEN.farah, reason: 'Fever and joint pain' },
       { on: '2024-03-12', doctor: ORT.meera, reason: 'Joint pain' },
@@ -264,7 +264,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     ],
   },
   {
-    uhid: 'SHRI-0032956', name: 'Sundaram Narayanan', nameNative: 'சுந்தரம் நாராயணன்', age: 70, sex: 'Male', registered: '2022-08-09',
+    uhid: 'ISH-0032956', name: 'Sundaram Narayanan', nameNative: 'சுந்தரம் நாராயணன்', age: 70, sex: 'Male', registered: '2022-08-09',
     visits: [
       { on: '2022-08-09', doctor: NSG.raj, reason: 'Back pain with leg numbness' },
       { on: '2022-09-06', doctor: NSG.raj, reason: 'MRI spine review' },
@@ -283,77 +283,77 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
 
   // ----------------------------------------- one earlier visit, and recent
   {
-    uhid: 'SHRI-0033104', name: 'Poornima Ganesan', nameNative: 'பூர்ணிமா கணேசன்', age: 34, sex: 'Female', registered: '2024-04-11',
+    uhid: 'ISH-0033104', name: 'Poornima Ganesan', nameNative: 'பூர்ணிமா கணேசன்', age: 34, sex: 'Female', registered: '2024-04-11',
     visits: [
       { on: '2024-04-11', doctor: GEN.farah, reason: 'Viral fever' },
       { on: -45, doctor: GEN.farah, reason: 'Stomach pain', status: 'Incomplete' },
     ],
   },
   {
-    uhid: 'SHRI-0033218', name: 'Aravind Sekar', age: 28, sex: 'Male', registered: '2025-03-06',
+    uhid: 'ISH-0033218', name: 'Aravind Sekar', age: 28, sex: 'Male', registered: '2025-03-06',
     visits: [{ on: '2025-03-06', doctor: ORT.ashwin, reason: 'Ankle sprain while playing football' }],
   },
   {
-    uhid: 'SHRI-0033331', name: 'Leela Krishnamurthy', nameNative: 'லீலா கிருஷ்ணமூர்த்தி', age: 63, sex: 'Female', registered: '2023-07-04',
+    uhid: 'ISH-0033331', name: 'Leela Krishnamurthy', nameNative: 'லீலா கிருஷ்ணமூர்த்தி', age: 63, sex: 'Female', registered: '2023-07-04',
     visits: [{ on: '2023-07-04', doctor: CAR.priya, reason: 'Chest pain — ECG' }],
   },
   {
-    uhid: 'SHRI-0033447', name: 'Rajendran Palanisamy', nameNative: 'ராஜேந்திரன் பழனிசாமி', age: 55, sex: 'Male', registered: '2022-11-21',
+    uhid: 'ISH-0033447', name: 'Rajendran Palanisamy', nameNative: 'ராஜேந்திரன் பழனிசாமி', age: 55, sex: 'Male', registered: '2022-11-21',
     visits: [{ on: '2022-11-21', doctor: GEN.rahul, reason: 'Acidity and chest burning' }],
   },
   {
-    uhid: 'SHRI-0033562', name: 'Meenatchi Sundaresan', nameNative: 'மீனாட்சி சுந்தரேசன்', age: 41, sex: 'Female', registered: '2025-08-12',
+    uhid: 'ISH-0033562', name: 'Meenatchi Sundaresan', nameNative: 'மீனாட்சி சுந்தரேசன்', age: 41, sex: 'Female', registered: '2025-08-12',
     visits: [{ on: '2025-08-12', doctor: NEU.ananya, reason: 'Headache and blurred vision' }],
   },
 
   // ------------------------------------------ recent only, no visit today
   {
-    uhid: 'SHRI-0033679', name: 'Vignesh Natarajan', age: 31, sex: 'Male', email: 'vignesh.n@example.com', registered: '2026-06-02',
+    uhid: 'ISH-0033679', name: 'Vignesh Natarajan', age: 31, sex: 'Male', email: 'vignesh.n@example.com', registered: '2026-06-02',
     visits: [{ on: -64, doctor: ORT.nandini, reason: 'Lower back pain after a long drive' }, { on: -23, doctor: ORT.nandini, reason: 'Back pain — review', status: 'Cancelled' }],
   },
   {
-    uhid: 'SHRI-0033795', name: 'Revathi Chandran', nameNative: 'ரேவதி சந்திரன்', age: 38, sex: 'Female', registered: '2026-07-14',
+    uhid: 'ISH-0033795', name: 'Revathi Chandran', nameNative: 'ரேவதி சந்திரன்', age: 38, sex: 'Female', registered: '2026-07-14',
     visits: [{ on: -52, doctor: GEN.farah, reason: 'Fever for three days' }],
   },
   {
-    uhid: 'SHRI-0033812', name: 'Anwar Hussain', nameNative: 'انور حسین', age: 47, sex: 'Male', registered: '2026-08-03',
+    uhid: 'ISH-0033812', name: 'Anwar Hussain', nameNative: 'انور حسین', age: 47, sex: 'Male', registered: '2026-08-03',
     visits: [{ on: -37, doctor: CAR.priya, reason: 'Palpitations' }, { on: -9, doctor: CAR.priya, reason: 'Holter results', status: 'Incomplete' }],
   },
   {
-    uhid: 'SHRI-0033926', name: 'Saranya Mohan', nameNative: 'சரண்யா மோகன்', age: 26, sex: 'Female', registered: '2026-09-01',
+    uhid: 'ISH-0033926', name: 'Saranya Mohan', nameNative: 'சரண்யா மோகன்', age: 26, sex: 'Female', registered: '2026-09-01',
     visits: [{ on: -15, doctor: NEU.sanjay, reason: 'Recurrent migraine' }],
   },
 
   // ------------------- registered today or this week — new patients, no past
   {
-    uhid: 'SHRI-0034001', name: 'Dinesh Karthikeyan', age: 36, sex: 'Male', registered: { minutesAgo: 95 }, visits: [],
+    uhid: 'ISH-0034001', name: 'Dinesh Karthikeyan', age: 36, sex: 'Male', registered: { minutesAgo: 95 }, visits: [],
     today: { doctor: GEN.farah, reason: 'First consultation', offset: 2, status: 'Confirmed' },
   },
   {
-    uhid: 'SHRI-0034002', name: 'Kavya Ramesh', nameNative: 'காவ்யா ரமேஷ்', age: 22, sex: 'Female', registered: { minutesAgo: 70 }, visits: [],
+    uhid: 'ISH-0034002', name: 'Kavya Ramesh', nameNative: 'காவ்யா ரமேஷ்', age: 22, sex: 'Female', registered: { minutesAgo: 70 }, visits: [],
     today: { doctor: NEU.sanjay, reason: 'First consultation — headache', offset: -1, status: 'Checked-in', token: 'Waiting', arrivedMinutesAgo: 14 },
   },
   {
-    uhid: 'SHRI-0034003', name: 'Surya Prakash', age: 44, sex: 'Male', abhaId: 'surya.prakash@abdm', registered: { minutesAgo: 120 }, visits: [],
+    uhid: 'ISH-0034003', name: 'Surya Prakash', age: 44, sex: 'Male', abhaId: 'surya.prakash@abdm', registered: { minutesAgo: 120 }, visits: [],
     today: { doctor: ORT.ashwin, reason: 'First consultation — knee pain', offset: -2, status: 'Completed' },
   },
   {
-    uhid: 'SHRI-0034004', name: 'Bhuvaneswari Anand', nameNative: 'புவனேஸ்வரி ஆனந்த்', age: 39, sex: 'Female', registered: -2, visits: [],
+    uhid: 'ISH-0034004', name: 'Bhuvaneswari Anand', nameNative: 'புவனேஸ்வரி ஆனந்த்', age: 39, sex: 'Female', registered: -2, visits: [],
     today: { doctor: CAR.revathi, reason: 'First consultation', offset: 4, status: 'Confirmed' },
   },
   {
-    uhid: 'SHRI-0034005', name: 'Tharun Vijay', age: 19, sex: 'Male', registered: -1, visits: [],
+    uhid: 'ISH-0034005', name: 'Tharun Vijay', age: 19, sex: 'Male', registered: -1, visits: [],
     today: { doctor: EMG.arvind, reason: 'Minor injury — dressing', offset: -1, status: 'Checked-in', token: 'Called', arrivedMinutesAgo: 9 },
   },
 
   // -------------------------------------------- registered, no visit at all
-  { uhid: 'SHRI-0034110', name: 'Harini Balaji', nameNative: 'ஹரிணி பாலாஜி', age: 27, sex: 'Female', registered: -6, visits: [] },
-  { uhid: 'SHRI-0034111', name: 'Manoj Kumar Sharma', age: 52, sex: 'Male', registered: -12, visits: [] },
-  { uhid: 'SHRI-0034112', name: 'Yamini Subbiah', nameNative: 'யாமினி சுப்பையா', age: 33, sex: 'Female', registered: -20, visits: [] },
+  { uhid: 'ISH-0034110', name: 'Harini Balaji', nameNative: 'ஹரிணி பாலாஜி', age: 27, sex: 'Female', registered: -6, visits: [] },
+  { uhid: 'ISH-0034111', name: 'Manoj Kumar Sharma', age: 52, sex: 'Male', registered: -12, visits: [] },
+  { uhid: 'ISH-0034112', name: 'Yamini Subbiah', nameNative: 'யாமினி சுப்பையா', age: 33, sex: 'Female', registered: -20, visits: [] },
 
   // --------------------------------- an earlier hospital stay plus OPD visits
   {
-    uhid: 'SHRI-0034230', name: 'Thangavel Murugesan', nameNative: 'தங்கவேல் முருகேசன்', age: 73, sex: 'Male', registered: '2022-09-12',
+    uhid: 'ISH-0034230', name: 'Thangavel Murugesan', nameNative: 'தங்கவேல் முருகேசன்', age: 73, sex: 'Male', registered: '2022-09-12',
     visits: [
       { on: '2022-09-12', doctor: CAR.priya, reason: 'Severe chest pain' },
       { on: '2022-10-11', doctor: CAR.priya, reason: 'Post-discharge review' },
@@ -369,7 +369,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     },
   },
   {
-    uhid: 'SHRI-0034347', name: 'Jayanthi Raghunathan', nameNative: 'ஜெயந்தி ரகுநாதன்', age: 65, sex: 'Female', registered: '2023-02-27',
+    uhid: 'ISH-0034347', name: 'Jayanthi Raghunathan', nameNative: 'ஜெயந்தி ரகுநாதன்', age: 65, sex: 'Female', registered: '2023-02-27',
     visits: [
       { on: '2023-02-27', doctor: ORT.meera, reason: 'Severe knee pain' },
       { on: '2023-03-20', doctor: ORT.meera, reason: 'Pre-operative assessment' },
@@ -385,7 +385,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     },
   },
   {
-    uhid: 'SHRI-0034458', name: 'Selvaraj Manickam', nameNative: 'செல்வராஜ் மாணிக்கம்', age: 58, sex: 'Male', registered: '2024-06-19',
+    uhid: 'ISH-0034458', name: 'Selvaraj Manickam', nameNative: 'செல்வராஜ் மாணிக்கம்', age: 58, sex: 'Male', registered: '2024-06-19',
     visits: [
       { on: '2024-06-19', doctor: GEN.rahul, reason: 'Fever with abdominal pain' },
       { on: '2024-07-09', doctor: GEN.rahul, reason: 'Post-discharge review' },
@@ -399,7 +399,7 @@ export const PATIENT_HISTORY: PatientHistorySeed[] = [
     },
   },
   {
-    uhid: 'SHRI-0034569', name: 'Ananthi Velusamy', nameNative: 'ஆனந்தி வேலுசாமி', age: 47, sex: 'Female', registered: '2025-05-08',
+    uhid: 'ISH-0034569', name: 'Ananthi Velusamy', nameNative: 'ஆனந்தி வேலுசாமி', age: 47, sex: 'Female', registered: '2025-05-08',
     visits: [
       { on: '2025-05-08', doctor: NSG.divya, reason: 'Persistent headache with vomiting' },
       { on: '2025-05-22', doctor: NSG.divya, reason: 'Post-discharge review' },
