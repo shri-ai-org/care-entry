@@ -4,7 +4,12 @@
 import { useSyncExternalStore } from 'react'
 import type { Span } from './dayModel'
 
+// Where the desk put it (dragging the chip, or the keys) and, while the mouse
+// is over the doctors' rows, where the mouse is — the mouse wins while it is there.
+let pinned: number | null = null
+let hovering: number | null = null
 let minute: number | null = null
+let leaveTimer: number | undefined
 const listeners = new Set<() => void>()
 
 function subscribe(listener: () => void): () => void {
@@ -12,13 +17,38 @@ function subscribe(listener: () => void): () => void {
   return () => listeners.delete(listener)
 }
 
-export function setTimeCursor(next: number | null): void {
+function emit() {
+  const next = hovering ?? pinned
   if (next === minute) return
   minute = next
   for (const listener of listeners) listener()
 }
 
-/** The cursor as moved by the desk, or null when it is at the clock. */
+/** Put the cursor at a minute (null: back to the clock). */
+export function setTimeCursor(next: number | null): void {
+  window.clearTimeout(leaveTimer)
+  pinned = next
+  hovering = null
+  emit()
+}
+
+/** The mouse is over a doctor's row at this minute: the cursor follows it. */
+export function followPointer(next: number): void {
+  window.clearTimeout(leaveTimer)
+  hovering = next
+  emit()
+}
+
+/** The mouse left a row: unless it enters another straight away, the cursor goes back to where it was put. */
+export function releasePointer(): void {
+  window.clearTimeout(leaveTimer)
+  leaveTimer = window.setTimeout(() => {
+    hovering = null
+    emit()
+  }, 200)
+}
+
+/** The cursor as moved by the desk or the mouse, or null when it is at the clock. */
 export function useTimeCursor(): number | null {
   return useSyncExternalStore(subscribe, () => minute)
 }

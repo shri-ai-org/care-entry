@@ -50,7 +50,7 @@ import { useEffect, useRef, useState, type CSSProperties, type PointerEvent } fr
 
 import { KIND_LABEL, duration, hourLine, isActivity, range12, span12, time12, type ActivityKind, type DayModel, type Span, type TimelineItem } from './dayModel'
 import './dayTimeline.css'
-import { CURSOR_STEP, cursorMinute, setTimeCursor, useTimeCursor } from './timeCursor'
+import { CURSOR_STEP, cursorMinute, followPointer, releasePointer, setTimeCursor, useTimeCursor } from './timeCursor'
 
 /** The row's scale on every screen: twelve hours are about 1,330px, before the short stretches widen. */
 const PX_PER_MIN = 1.85
@@ -210,7 +210,15 @@ export function DayTimeline({
     const r = rowRef.current.getBoundingClientRect()
     const wrap = wrapRef.current.getBoundingClientRect()
     const x = Math.min(Math.max(e.clientX - r.left, 0), r.width)
-    setHover({ min: minuteAt(e.clientX), x, top: r.bottom - wrap.top + 12, left: Math.min(Math.max(e.clientX - wrap.left - 140, 0), wrap.width - 280) })
+    const min = minuteAt(e.clientX)
+    setHover({ min, x, top: r.bottom - wrap.top + 12, left: Math.min(Math.max(e.clientX - wrap.left - 140, 0), wrap.width - 280) })
+    // Under a shared axis the red pin is the cursor: it follows the mouse on every row.
+    if (hideAxis) followPointer(Math.round(min))
+  }
+
+  function onLeave() {
+    setHover(null)
+    if (hideAxis) releasePointer()
   }
 
   const under = (min: number) =>
@@ -263,11 +271,11 @@ export function DayTimeline({
             )}
 
             {/* The row. */}
-            <div ref={rowRef} onPointerMove={onMove} onPointerLeave={() => setHover(null)} className="dtl-row">
+            <div ref={rowRef} onPointerMove={onMove} onPointerLeave={onLeave} className="dtl-row">
               {model.items.map((item) => (
                 <Bar key={item.id} item={item} scale={scale} px={(fracOf(scale, item.drawEnd) - fracOf(scale, item.start)) * w - 4} onOpen={onOpen} onTap={tap} />
               ))}
-              {hover && (
+              {hover && !hideAxis && (
                 <span aria-hidden="true" className="dtl-guide" style={{ left: hover.x }}>
                   <span className="dtl-guide-dot" />
                   <span className="dtl-guide-line" />
@@ -617,6 +625,7 @@ export function DayTimelineAxis({ range, now }: { range: Span; now: number | nul
   }
   function onPointerMove(e: PointerEvent<HTMLDivElement>) {
     if (e.currentTarget.hasPointerCapture(e.pointerId)) setTimeCursor(minuteAt(e.clientX))
+    else if (e.pointerType === 'mouse') followPointer(minuteAt(e.clientX))
   }
   function onKeyDown(e: React.KeyboardEvent) {
     const step = { ArrowLeft: -CURSOR_STEP, ArrowRight: CURSOR_STEP, PageDown: -30, PageUp: 30 }[e.key]
@@ -632,7 +641,13 @@ export function DayTimelineAxis({ range, now }: { range: Span; now: number | nul
       <div className="dtl-scroll">
         <div className="dtl-track">
           {/* Press or drag anywhere on the hours to move the cursor; its chip names the time. */}
-          <div ref={ref} className="dtl-inner dtl-cursor-axis" onPointerDown={onPointerDown} onPointerMove={onPointerMove}>
+          <div
+            ref={ref}
+            className="dtl-inner dtl-cursor-axis"
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerLeave={releasePointer}
+          >
             <div className="dtl-now-head">
               <span
                 role="slider"
