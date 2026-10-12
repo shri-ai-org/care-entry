@@ -33,8 +33,10 @@ export function SharedDayHeader({
 }) {
   return (
     <div className="sticky -top-3.5 z-20 -mx-3.5 -mt-3.5 flex flex-col gap-1 border-b border-border-soft bg-surface-1 px-3.5 pb-1 pt-3.5 sm:-mx-4 sm:px-4">
-      <div className="scrollbar-hide scroll-fade-x -mx-1 flex gap-1.5 overflow-x-auto overflow-y-hidden px-1 py-1" role="group" aria-label="Day">
-        {days.map((d) => {
+      {/* Today and tomorrow (and the chosen day, should it be later), then the key on the same row. */}
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 py-1">
+      <div className="flex gap-1.5" role="group" aria-label="Day">
+        {days.filter((d, i) => i < 2 || d.date === day).map((d) => {
           const active = d.date === day
           const dt = new Date(dayStartTimestamp(d.date))
           const label = d.date === today ? 'Today' : d.date === addDaysToKey(today, 1) ? 'Tmrw' : `${WEEKDAY_SHORT[dt.getDay()]} ${dt.getDate()}`
@@ -71,12 +73,10 @@ export function SharedDayHeader({
           )
         })}
       </div>
+      <DayTimelineLegend />
+      </div>
       {/* Doctor on the left (18rem + its border), the chart on the right — as inside the cards. */}
-      {/* The key sits over the doctors' column (left of the hours) on wide rows, above the hours on narrow ones. */}
-      <div className="@container relative">
-        <div className="px-[calc(0.875rem+1px)] pt-1 sm:px-[calc(1rem+1px)] @3xl:absolute @3xl:bottom-2 @3xl:left-0 @3xl:w-[18rem] @3xl:pt-0">
-          <DayTimelineLegend />
-        </div>
+      <div className="@container">
         <div className="px-[calc(0.875rem+1px)] sm:px-[calc(1rem+1px)] @3xl:pl-[calc(18rem+1px+1rem)]">
           <DayTimelineAxis range={range} now={day === today ? minutesOfDay(now) : null} />
         </div>
