@@ -171,6 +171,67 @@
 .dtl-now-dash { width: 0; flex: 1; border-left: 2px dashed var(--now-line); }
 .dtl-now-end { width: 7px; height: 7px; flex-shrink: 0; border-radius: 999px; background: var(--now-line); }
 
+/* ── The movable time cursor (doctor lists): a chip naming the time, its line through every row ── */
+
+.dtl-cursor-axis, .dtl-cursor-line { --cursor: var(--now-line); }
+.dtl-cursor-axis { cursor: ew-resize; touch-action: none; user-select: none; }
+.dtl-cursor-chip {
+  position: absolute;
+  bottom: 4px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  background: var(--cursor);
+  padding: 3px 9px 3px 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 16px;
+  white-space: nowrap;
+  color: #fff;
+  box-shadow: 0 2px 6px -1px color-mix(in srgb, var(--cursor) 55%, transparent);
+  transform: translateX(-50%);
+  cursor: grab;
+}
+.dtl-cursor-chip:active { cursor: grabbing; }
+.dtl-cursor-chip:focus-visible { outline: 2px solid var(--cursor); outline-offset: 2px; }
+.dtl-cursor-chip[data-side='start'] { transform: translateX(-12px); }
+.dtl-cursor-chip[data-side='end'] { transform: translateX(calc(-100% + 12px)); }
+/* A small pointer under the chip, over the cursor's minute. */
+.dtl-cursor-chip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border: 5px solid transparent;
+  border-top-color: var(--cursor);
+  transform: translateX(-50%);
+}
+.dtl-cursor-chip[data-side='start']::after { left: 12px; }
+.dtl-cursor-chip[data-side='end']::after { left: calc(100% - 12px); }
+.dtl-cursor-stem {
+  pointer-events: none;
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  z-index: 2;
+  width: 0;
+  border-left: 2px dashed var(--cursor);
+  transform: translateX(-50%);
+}
+.dtl-cursor-line {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+}
+
 /* ── A bar. Each is its own container: it says as much as fits. ── */
 
 .dtl-bar {

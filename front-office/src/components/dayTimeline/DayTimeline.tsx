@@ -34,6 +34,7 @@ import {
   Ban,
   BedDouble,
   Brain,
+  ChevronsLeftRight,
   Circle,
   ClockPlus,
   DoorOpen,
@@ -49,6 +50,7 @@ import { useEffect, useRef, useState, type CSSProperties, type PointerEvent } fr
 
 import { KIND_LABEL, duration, hourLine, isActivity, range12, span12, time12, type ActivityKind, type DayModel, type Span, type TimelineItem } from './dayModel'
 import './dayTimeline.css'
+import { CURSOR_STEP, cursorMinute, setTimeCursor, useTimeCursor } from './timeCursor'
 
 /** The row's scale on every screen: twelve hours are about 1,330px, before the short stretches widen. */
 const PX_PER_MIN = 1.85
@@ -223,6 +225,9 @@ export function DayTimeline({
     m % 60 === 0 || [m - 30, m + 30].filter((n) => n >= model.range[0] && n <= model.range[1]).every((n) => Math.abs(fracOf(scale, n) - fracOf(scale, m)) * w >= 40)
   const nowSide = model.now !== null && model.now > model.range[1] - 90 ? 'left' : 'right'
   const hovered = hover ? under(hover.min) : undefined
+  // Under a shared axis the rows draw the desk's movable time cursor instead of the Now pin.
+  const movedCursor = useTimeCursor()
+  const cursor = hideAxis ? cursorMinute(movedCursor, model.range) : null
 
   return (
     <div ref={wrapRef} className="dtl" data-compact={hideAxis ? '' : undefined}>
@@ -272,8 +277,16 @@ export function DayTimeline({
             </div>
             <Ticks marks={marks} scale={scale} />
 
+            {cursor !== null ? (
+              // The red pin, moved with the cursor on the shared axis.
+              <span aria-hidden="true" className="dtl-cursor-line" style={{ left: at(scale, cursor) }}>
+                <span className="dtl-now-dot" />
+                <span className="dtl-now-dash" />
+                <span className="dtl-now-end" />
+              </span>
+            ) : null}
             {/* The Now line, from its label through the row. */}
-            {model.now !== null && (
+            {cursor === null && model.now !== null && (
               <span aria-hidden="true" className="dtl-now-line" style={{ left: at(scale, model.now) }}>
                 <span className="dtl-now-dot" />
                 <span className="dtl-now-dash" />
@@ -578,26 +591,67 @@ export function DayTimelineAxis({ range, now }: { range: Span; now: number | nul
     ro.observe(el)
     return () => ro.disconnect()
   }, [])
+  // A new day or another set of hours starts the cursor at the clock again.
+  const isToday = now !== null
+  const [from, to] = range
+  useEffect(() => setTimeCursor(null), [from, to, isToday])
+  const moved = useTimeCursor()
+  const cursor = cursorMinute(moved, range)
+
   const scale = linearScale(range)
   const marks = Array.from({ length: (range[1] - range[0]) / 30 + 1 }, (_, i) => range[0] + i * 30)
   const perHalfHour = (w * 30) / Math.max(1, range[1] - range[0])
   const shown = marks.filter((m) => m % 60 === 0 || perHalfHour >= 40)
-  const onAxis = now !== null && now >= range[0] && now <= range[1]
-  const nowSide = onAxis && now! > range[1] - 90 ? 'left' : 'right'
+  const frac = fracOf(scale, cursor)
+  const side = frac < 0.07 ? 'start' : frac > 0.93 ? 'end' : 'mid'
+
+  const snap = (m: number) => Math.min(range[1], Math.max(range[0], Math.round(m / CURSOR_STEP) * CURSOR_STEP))
+  function minuteAt(clientX: number): number {
+    const r = ref.current!.getBoundingClientRect()
+    return snap(range[0] + ((clientX - r.left) / Math.max(1, r.width)) * (range[1] - range[0]))
+  }
+  function onPointerDown(e: PointerEvent<HTMLDivElement>) {
+    e.preventDefault()
+    e.currentTarget.setPointerCapture(e.pointerId)
+    setTimeCursor(minuteAt(e.clientX))
+  }
+  function onPointerMove(e: PointerEvent<HTMLDivElement>) {
+    if (e.currentTarget.hasPointerCapture(e.pointerId)) setTimeCursor(minuteAt(e.clientX))
+  }
+  function onKeyDown(e: React.KeyboardEvent) {
+    const step = { ArrowLeft: -CURSOR_STEP, ArrowRight: CURSOR_STEP, PageDown: -30, PageUp: 30 }[e.key]
+    if (step !== undefined) setTimeCursor(snap(cursor + step))
+    else if (e.key === 'Home') setTimeCursor(range[0])
+    else if (e.key === 'End') setTimeCursor(range[1])
+    else return
+    e.preventDefault()
+  }
+
   return (
-    <div className="dtl" aria-hidden="true">
+    <div className="dtl">
       <div className="dtl-scroll">
         <div className="dtl-track">
-          <div ref={ref} className="dtl-inner">
+          {/* Press or drag anywhere on the hours to move the cursor; its chip names the time. */}
+          <div ref={ref} className="dtl-inner dtl-cursor-axis" onPointerDown={onPointerDown} onPointerMove={onPointerMove}>
             <div className="dtl-now-head">
-              {onAxis ? (
-                <span className="dtl-now-label" data-side={nowSide} style={{ left: at(scale, now!) }}>
-                  <span>Now</span>
-                  <span>{time12(now!)}</span>
-                </span>
-              ) : null}
+              <span
+                role="slider"
+                tabIndex={0}
+                aria-label="Time cursor"
+                aria-valuemin={range[0]}
+                aria-valuemax={range[1]}
+                aria-valuenow={cursor}
+                aria-valuetext={time12(cursor)}
+                onKeyDown={onKeyDown}
+                className="dtl-cursor-chip"
+                data-side={side}
+                style={{ left: at(scale, cursor) }}
+              >
+                <ChevronsLeftRight size={13} strokeWidth={2.25} aria-hidden="true" />
+                {time12(cursor)}
+              </span>
             </div>
-            <div className="dtl-hours">
+            <div className="dtl-hours" aria-hidden="true">
               {shown.map((m) => {
                 const t = time12(m)
                 return (
@@ -609,6 +663,7 @@ export function DayTimelineAxis({ range, now }: { range: Span; now: number | nul
               })}
             </div>
             <Ticks marks={marks} scale={scale} />
+            <span aria-hidden="true" className="dtl-cursor-stem" style={{ left: at(scale, cursor) }} />
           </div>
         </div>
       </div>
