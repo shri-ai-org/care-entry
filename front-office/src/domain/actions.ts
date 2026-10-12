@@ -316,6 +316,55 @@ export function bookAppointment({
   return { appointment: booked.value, bill: billed.value }
 }
 
+/** An unpaid booking moved to another time: the old booking and its unpaid
+ *  bill are removed altogether — not cancelled — so only the new booking is
+ *  seen anywhere (profile, outpatients, the doctor's day, payments), and its
+ *  time is free again. Saved in one step: if the new time can't be booked,
+ *  nothing changes. A booking with anything paid moves with
+ *  rescheduleAppointment instead. */
+export function rebookUnpaidAppointment({
+  appointmentId,
+  providerId,
+  date,
+  slot,
+  reason,
+  mode,
+}: {
+  appointmentId: string
+  providerId: string
+  date: string
+  slot: string
+  reason?: string
+  mode?: ConsultMode
+}): { appointment: Appointment; bill: Payment } {
+  const state = getState()
+  const now = Date.now()
+  const old = requireAppointment(state, appointmentId)
+  const oldBills = getBillsForAppointment(state, appointmentId)
+  if ((old.status !== 'Payment Pending' && old.status !== 'Scheduled') || oldBills.some((bill) => bill.paidAmount > 0)) {
+    throw new DomainError('INVALID_TRANSITION', 'Only an unpaid booking can be replaced — this one is moved with Reschedule.')
+  }
+  const provider = state.providers.find((p) => p.providerId === providerId)
+  if (!provider || provider.status !== 'Active') throw new DomainError('VALIDATION', 'That doctor is not taking bookings.')
+  if (mode && !modesFor(provider).includes(mode)) {
+    throw new DomainError('VALIDATION', `${provider.name} does not offer ${mode === 'Teleconsult' ? 'teleconsults' : 'in-person visits'}.`)
+  }
+  const gone = new Set(oldBills.map((bill) => bill.paymentId))
+  const cleared: AppState = {
+    ...state,
+    appointments: state.appointments.filter((a) => a.appointmentId !== appointmentId),
+    payments: state.payments.filter((bill) => !gone.has(bill.paymentId)),
+  }
+  const booked = applyBooking(
+    cleared,
+    { patientId: old.patientId, providerId, department: provider.department, slot, date, reason: reason ?? old.reason ?? undefined, mode: mode ?? modesFor(provider)[0] },
+    now,
+  )
+  const billed = applyConsultationBill(booked.state, { patientId: old.patientId, providerId, appointmentId: booked.value.appointmentId }, now)
+  setState(billed.state)
+  return { appointment: booked.value, bill: billed.value }
+}
+
 // ------------------------------------------------- cancel, move, no-show
 // The money follows who could not keep the booking: when the doctor is
 // unavailable the patient is refunded in full; when the patient cancels or

@@ -90,8 +90,6 @@ export function RescheduleFlow({ params, onClose }: FlowProps) {
 
   if (!was || !wasProvider) return sheet(<Alert tone="warning">That booking no longer exists.</Alert>)
 
-  const wasPlace: BookingPlace = { providerId: was.providerId, date: was.date, slot: was.slot, mode: was.mode }
-
   // ------------------------------------------------------------ acknowledgement
   if (done) {
     const moved = done.appointment
@@ -113,7 +111,6 @@ export function RescheduleFlow({ params, onClose }: FlowProps) {
           {moved.mode === 'Teleconsult' ? <Video className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" /> : <Building2 className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />}
           {moved.mode === 'Teleconsult' ? 'Teleconsult' : 'In person'}
         </p>
-        <p className="text-xs">Was {placeLine(wasPlace, wasProvider.name, today)}</p>
         <p>
           {moved.appointmentId.toUpperCase()}
           {done.differenceBill ? null : ' · nothing to pay'}
