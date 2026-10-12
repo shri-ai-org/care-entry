@@ -4,10 +4,11 @@
 import { useSyncExternalStore } from 'react'
 import type { Span } from './dayModel'
 
-// Where the desk put it (dragging the chip, or the keys) and, while the mouse
-// is over the doctors' rows, where the mouse is — the mouse wins while it is there.
+// Where the desk put it (dragging the chip, or the keys) — every doctor's pin —
+// and, while the mouse is over one doctor's row, where the mouse is: that
+// doctor's pin alone follows it.
 let pinned: number | null = null
-let hovering: number | null = null
+let hovering: { row: string; minute: number } | null = null
 let minute: number | null = null
 let leaveTimer: number | undefined
 const listeners = new Set<() => void>()
@@ -18,9 +19,7 @@ function subscribe(listener: () => void): () => void {
 }
 
 function emit() {
-  const next = hovering ?? pinned
-  if (next === minute) return
-  minute = next
+  minute = hovering?.minute ?? pinned
   for (const listener of listeners) listener()
 }
 
@@ -32,10 +31,11 @@ export function setTimeCursor(next: number | null): void {
   emit()
 }
 
-/** The mouse is over a doctor's row at this minute: the cursor follows it. */
-export function followPointer(next: number): void {
+/** The mouse is over one doctor's row at this minute: that doctor's pin follows it. */
+export function followPointer(row: string, next: number): void {
   window.clearTimeout(leaveTimer)
-  hovering = next
+  if (hovering?.row === row && hovering.minute === next) return
+  hovering = { row, minute: next }
   emit()
 }
 
@@ -48,9 +48,14 @@ export function releasePointer(): void {
   }, 200)
 }
 
-/** The cursor as moved by the desk or the mouse, or null when it is at the clock. */
+/** The time the chip names: the pin being moved, else where the desk put it — null at the clock. */
 export function useTimeCursor(): number | null {
   return useSyncExternalStore(subscribe, () => minute)
+}
+
+/** One doctor's pin: under the mouse while it is over their row, else where the desk put it — null at the clock. */
+export function useRowCursor(row: string): number | null {
+  return useSyncExternalStore(subscribe, () => (hovering?.row === row ? hovering.minute : pinned))
 }
 
 function clockMinute(): number {

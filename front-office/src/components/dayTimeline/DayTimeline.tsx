@@ -46,11 +46,11 @@ import {
   Video,
   type LucideIcon,
 } from 'lucide-react'
-import { useEffect, useRef, useState, type CSSProperties, type PointerEvent } from 'react'
+import { useEffect, useId, useRef, useState, type CSSProperties, type PointerEvent } from 'react'
 
 import { KIND_LABEL, duration, hourLine, isActivity, range12, span12, time12, type ActivityKind, type DayModel, type Span, type TimelineItem } from './dayModel'
 import './dayTimeline.css'
-import { CURSOR_STEP, cursorMinute, followPointer, releasePointer, setTimeCursor, useTimeCursor } from './timeCursor'
+import { CURSOR_STEP, cursorMinute, followPointer, releasePointer, setTimeCursor, useRowCursor, useTimeCursor } from './timeCursor'
 
 /** The row's scale on every screen: twelve hours are about 1,330px, before the short stretches widen. */
 const PX_PER_MIN = 1.85
@@ -213,7 +213,7 @@ export function DayTimeline({
     const min = minuteAt(e.clientX)
     setHover({ min, x, top: r.bottom - wrap.top + 12, left: Math.min(Math.max(e.clientX - wrap.left - 140, 0), wrap.width - 280) })
     // Under a shared axis the red pin is the cursor: it follows the mouse on every row.
-    if (hideAxis) followPointer(Math.round(min))
+    if (hideAxis) followPointer(rowId, Math.round(min))
   }
 
   function onLeave() {
@@ -234,7 +234,8 @@ export function DayTimeline({
   const nowSide = model.now !== null && model.now > model.range[1] - 90 ? 'left' : 'right'
   const hovered = hover ? under(hover.min) : undefined
   // Under a shared axis the rows draw the desk's movable time cursor instead of the Now pin.
-  const movedCursor = useTimeCursor()
+  const rowId = useId()
+  const movedCursor = useRowCursor(rowId)
   const cursor = hideAxis ? cursorMinute(movedCursor, model.range) : null
 
   return (
@@ -625,7 +626,6 @@ export function DayTimelineAxis({ range, now }: { range: Span; now: number | nul
   }
   function onPointerMove(e: PointerEvent<HTMLDivElement>) {
     if (e.currentTarget.hasPointerCapture(e.pointerId)) setTimeCursor(minuteAt(e.clientX))
-    else if (e.pointerType === 'mouse') followPointer(minuteAt(e.clientX))
   }
   function onKeyDown(e: React.KeyboardEvent) {
     const step = { ArrowLeft: -CURSOR_STEP, ArrowRight: CURSOR_STEP, PageDown: -30, PageUp: 30 }[e.key]
@@ -646,7 +646,6 @@ export function DayTimelineAxis({ range, now }: { range: Span; now: number | nul
             className="dtl-inner dtl-cursor-axis"
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
-            onPointerLeave={releasePointer}
           >
             <div className="dtl-now-head">
               <span
