@@ -11,9 +11,9 @@ export const STEP_DEFS: StepDef[] = [
 ];
 
 export const MOCK_PATIENTS: MockPatient[] = [
-  { id: 'p1', name: 'Asha Menon', systemId: 'SHRI-202609-2A2F0671', mobile: '9998887777', aadhaar: '412574839021', dob: '1978-04-12', gender: 'female', age: 47 },
-  { id: 'p2', name: 'Ravi Kumar', systemId: 'SHRI-202608-7C1B44E0', mobile: '9123456780', aadhaar: '739102846537', dob: '1965-01-20', gender: 'male', age: 60 },
-  { id: 'p3', name: 'Rita Kumar', systemId: 'SHRI-202607-9F3D21AA', mobile: '9234567891', aadhaar: null, dob: '1990-06-02', gender: 'female', age: 35 },
+  { id: 'p1', name: 'Asha Menon', systemId: 'ISH-202609-2A2F0671', mobile: '9998887777', aadhaar: '412574839021', dob: '1978-04-12', gender: 'female', age: 47 },
+  { id: 'p2', name: 'Ravi Kumar', systemId: 'ISH-202608-7C1B44E0', mobile: '9123456780', aadhaar: '739102846537', dob: '1965-01-20', gender: 'male', age: 60 },
+  { id: 'p3', name: 'Rita Kumar', systemId: 'ISH-202607-9F3D21AA', mobile: '9234567891', aadhaar: null, dob: '1990-06-02', gender: 'female', age: 35 },
 ];
 
 export const HISTORY_DEFS = [
@@ -57,7 +57,7 @@ export function generateSystemId(): string {
   const d = new Date();
   const stamp = '' + d.getFullYear() + pad2(d.getMonth() + 1);
   const suffix = Math.random().toString(16).slice(2, 10).toUpperCase();
-  return 'SHRI-' + stamp + '-' + suffix;
+  return 'ISH-' + stamp + '-' + suffix;
 }
 
 export function generateEncounterCode(): string {

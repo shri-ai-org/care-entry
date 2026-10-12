@@ -91,7 +91,7 @@ export function createAdmissionSeed(now: number, context: AdmissionSeedContext):
     // Admitted after a clinic visit, then declined within the hour — the
     // unpaid bill went with it.
     {
-      patientId: 'SHRI-0048305', doctorId: 'dr-vikram-das', admissionType: 'Elective',
+      patientId: 'ISH-0048305', doctorId: 'dr-vikram-das', admissionType: 'Elective',
       reason: 'Diabetic foot ulcer — wound care', referralSource: 'Outpatient',
       attendant: attendant('Mary Thomas', 'Spouse', '+91 94473 50128'),
       paymentType: 'Insurance', insuranceProvider: 'New India Assurance', policyNumber: 'NIA-7720915',
@@ -100,14 +100,14 @@ export function createAdmissionSeed(now: number, context: AdmissionSeedContext):
     },
     // Day 5 after an angioplasty; two deposits paid, the rest still due.
     {
-      patientId: 'SHRI-0069958', doctorId: 'dr-priya-nair', admissionType: 'Elective',
+      patientId: 'ISH-0069958', doctorId: 'dr-priya-nair', admissionType: 'Elective',
       reason: 'Coronary angioplasty — post-procedure care', referralSource: 'Outpatient',
       attendant: attendant('Salim Rahman', 'Son', '+91 98422 70316'),
       paymentType: 'Self Pay', status: 'Admitted', bedId: 'bed-6', admittedAt: daysAgo(4) - 2 * HOUR,
     },
     // Three days for gastroenteritis; discharged yesterday, bill settled.
     {
-      patientId: 'SHRI-0052719', doctorId: 'dr-rahul-menon', admissionType: 'Emergency',
+      patientId: 'ISH-0052719', doctorId: 'dr-rahul-menon', admissionType: 'Emergency',
       reason: 'Acute gastroenteritis with dehydration', referralSource: 'Outpatient',
       attendant: attendant('Kannan', 'Son', '+91 98425 66019'),
       paymentType: 'Self Pay', status: 'Discharged', bedId: 'bed-1',
@@ -116,7 +116,7 @@ export function createAdmissionSeed(now: number, context: AdmissionSeedContext):
     },
     // Day 3, billed to the employer.
     {
-      patientId: 'SHRI-0106392', doctorId: 'dr-vikram-das', admissionType: 'Elective',
+      patientId: 'ISH-0106392', doctorId: 'dr-vikram-das', admissionType: 'Elective',
       reason: 'Uncontrolled diabetes — insulin titration', referralSource: 'Outpatient',
       attendant: attendant('Revathi Murugan', 'Daughter', '+91 98940 31877'),
       paymentType: 'Corporate', insuranceProvider: 'Larsen & Toubro', policyNumber: 'LT-EMP-20417',
@@ -124,14 +124,14 @@ export function createAdmissionSeed(now: number, context: AdmissionSeedContext):
     },
     // Day 2: the first day paid at admission, today's bed charge due.
     {
-      patientId: 'SHRI-0044120', doctorId: 'dr-arun-kumar', admissionType: 'Elective',
+      patientId: 'ISH-0044120', doctorId: 'dr-arun-kumar', admissionType: 'Elective',
       reason: 'Recurrent giddiness — observation and MRI brain', referralSource: 'Outpatient',
       attendant: attendant('Vikram Babu', 'Son', '+91 98430 55112'),
       paymentType: 'Self Pay', status: 'Admitted', bedId: 'bed-2', admittedAt: hoursAgo(26),
     },
     // Planned knee replacement, waiting for a bed.
     {
-      patientId: 'SHRI-0122871', doctorId: 'dr-meera-shah', admissionType: 'Elective',
+      patientId: 'ISH-0122871', doctorId: 'dr-meera-shah', admissionType: 'Elective',
       reason: 'Planned right total knee replacement', referralSource: 'Outpatient',
       attendant: attendant('Balaji Raman', 'Spouse', '+91 99438 12056'),
       paymentType: 'TPA', insuranceProvider: 'Vidal Health TPA', policyNumber: 'VH-5510234',
@@ -139,7 +139,7 @@ export function createAdmissionSeed(now: number, context: AdmissionSeedContext):
     },
     // Road accident, observed overnight in Emergency and discharged this morning.
     {
-      patientId: 'SHRI-0125584', doctorId: 'dr-rahul-menon', admissionType: 'Emergency',
+      patientId: 'ISH-0125584', doctorId: 'dr-rahul-menon', admissionType: 'Emergency',
       reason: 'Road traffic accident — minor injuries, observation', referralSource: 'Emergency',
       attendant: attendant('Lalitha Chandra', 'Mother', '+91 96007 18234'),
       paymentType: 'Self Pay', status: 'Discharged', bedId: 'bed-23',
@@ -148,7 +148,7 @@ export function createAdmissionSeed(now: number, context: AdmissionSeedContext):
     },
     // Transferred in after surgery elsewhere; the TPA settles at discharge.
     {
-      patientId: 'SHRI-0125590', doctorId: 'dr-rahul-menon', admissionType: 'Emergency',
+      patientId: 'ISH-0125590', doctorId: 'dr-rahul-menon', admissionType: 'Emergency',
       reason: 'Post-operative monitoring — transferred from another hospital', referralSource: 'Transfer',
       attendant: attendant('Lakshmi Subramanian', 'Spouse', '+91 94440 66232'),
       paymentType: 'TPA', insuranceProvider: 'MediAssist TPA', policyNumber: 'MA-2231987',
@@ -156,7 +156,7 @@ export function createAdmissionSeed(now: number, context: AdmissionSeedContext):
     },
     // Chest pain this morning; the insurer settles at discharge.
     {
-      patientId: 'SHRI-0102234', doctorId: 'dr-priya-nair', admissionType: 'Emergency',
+      patientId: 'ISH-0102234', doctorId: 'dr-priya-nair', admissionType: 'Emergency',
       reason: 'Chest pain — cardiac workup', referralSource: 'Emergency',
       attendant: attendant('Rajesh Menon', 'Spouse', '+91 99000 44311'),
       paymentType: 'Insurance', insuranceProvider: 'Star Health', policyNumber: 'SH-88213340',
@@ -164,18 +164,18 @@ export function createAdmissionSeed(now: number, context: AdmissionSeedContext):
     },
     // Road accident brought in by ambulance — a medico-legal case.
     {
-      patientId: 'SHRI-0129901', doctorId: 'dr-rahul-menon', admissionType: 'Emergency',
+      patientId: 'ISH-0129901', doctorId: 'dr-rahul-menon', admissionType: 'Emergency',
       reason: 'Road traffic accident — head injury, under observation', referralSource: 'Emergency',
       attendant: attendant('Suresh Raj', 'Brother', '+91 97890 22145'),
       paymentType: 'Self Pay', status: 'Admitted', bedId: 'bed-12', admittedAt: minutesAgo(140),
     },
     // Seen by Dr. Arun Kumar; admission advised at that visit, bed awaited.
     {
-      patientId: 'SHRI-0111045', doctorId: 'dr-arun-kumar', admissionType: 'Elective',
+      patientId: 'ISH-0111045', doctorId: 'dr-arun-kumar', admissionType: 'Elective',
       reason: 'Lumbar disc prolapse — pain management', referralSource: 'Outpatient',
       attendant: attendant('Ayesha Irfan', 'Spouse', '+91 90031 77813'),
       paymentType: 'Self Pay', status: 'Pending',
-      requestedAt: Math.min((context.visitEnd('SHRI-0111045') ?? minutesAgo(65)) + 15 * MINUTE, minutesAgo(1)),
+      requestedAt: Math.min((context.visitEnd('ISH-0111045') ?? minutesAgo(65)) + 15 * MINUTE, minutesAgo(1)),
     },
   ]
 

@@ -747,9 +747,9 @@ function mobileTier(mobile: string, raw: string): number {
   return 0
 }
 
-/** A UHID matches on its number — "SHRI" on its own, or "sh", matches nobody. */
+/** A UHID matches on its number — "ISH" on its own, or "is", matches nobody. */
 function uhidTier(uhid: string, raw: string): number {
-  const typed = raw.toLowerCase().replace(/^shri/, '').replace(/[\s-]/g, '')
+  const typed = raw.toLowerCase().replace(/^ish/, '').replace(/[\s-]/g, '')
   if (!/^\d+$/.test(typed)) return 0
   const full = digitsOf(uhid)
   const typedCore = typed.replace(/^0+/, '')
