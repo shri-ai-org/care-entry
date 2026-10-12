@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom'
 import { motion } from 'framer-motion'
 import { X } from 'lucide-react'
 import { IconBadge } from '../ui/IconBadge'
+import { LiveClock } from '../layout/LiveClock'
 import { useLayer } from '../../hooks/useLayer'
 import { useFocusTrap } from '../../hooks/useFocusTrap'
 import { useScrollLock } from '../../hooks/useScrollLock'
@@ -67,7 +68,7 @@ export function FlowSheet({
           size === 'full' ? 'max-w-none' : 'max-w-2xl',
         )}
       >
-        <header className="flex shrink-0 items-start justify-between gap-3 border-b border-border-soft px-4 pb-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-5 sm:pb-4 sm:pt-4">
+        <header className="flex shrink-0 items-center justify-between gap-3 border-b border-border-soft px-4 pb-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-5 sm:pb-4 sm:pt-4">
           <div className="flex min-w-0 items-center gap-3">
             {icon ? <IconBadge icon={icon} tone={iconTone} size="sm" /> : null}
             <div className="min-w-0">
@@ -77,6 +78,8 @@ export function FlowSheet({
               {subtitle ? <div className="mt-0.5 truncate text-xs text-ink-muted">{subtitle}</div> : null}
             </div>
           </div>
+          <div className="flex shrink-0 items-center gap-2">
+          <LiveClock />
           <button
             type="button"
             onClick={onClose}
@@ -86,6 +89,7 @@ export function FlowSheet({
           >
             <X size={20} aria-hidden="true" />
           </button>
+          </div>
         </header>
         <div className={cn('min-h-0 flex-1 overflow-y-auto overscroll-contain', size === 'full' ? 'px-4 py-4 sm:px-6' : 'px-4 py-5 sm:px-5')}>{children}</div>
         {footer ? (

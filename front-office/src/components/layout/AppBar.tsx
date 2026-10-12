@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { UserMenu } from './UserMenu'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ThemeToggle } from './ThemeToggle'
+import { LiveClock } from './LiveClock'
 import { BrandMark } from './BrandMark'
 import { MobileNavRow } from './MobileNavRow'
 import { PatientSearch } from '../patient/PatientSearch'
@@ -60,6 +61,7 @@ export function AppBar({ ref }: { ref?: Ref<HTMLElement> }) {
         )}
 
         <div className="ml-auto flex min-w-0 items-center gap-0.5 min-[360px]:gap-1.5 xl:ml-0">
+          <LiveClock className="mr-1 max-[359px]:hidden" />
           <ThemeToggle />
           <div className="hidden sm:flex">
             <LanguageSwitcher />

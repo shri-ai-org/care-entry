@@ -37,7 +37,9 @@
   /* Free time a dashed green, breaks hatched grey, the Now line red. */
   --avail-fill: #ecfaf1; --avail-edge: #22a55a; --avail-ink: #146c3a;
   --off-fill: #f4f4f6; --off-hatch: #dcdce2;
-  --now-line: #e5342f; --now-ink: #c42f2f;
+  /* Now is blue and stays put; the red is the time cursor the desk drags. */
+  --now-line: #2563eb; --now-ink: #1d4ed8;
+  --cursor-red: #e5342f;
 
   position: relative;
   font-family: var(--dtl-font, inherit);
@@ -66,7 +68,8 @@
   --act-paper: #52607a;
   --avail-fill: rgba(34, 197, 94, 0.12); --avail-edge: #22c55e; --avail-ink: #86efac;
   --off-fill: #2a2a2d; --off-hatch: #404045;
-  --now-line: #ff5a52; --now-ink: #ff8a8a;
+  --now-line: #60a5fa; --now-ink: #93c5fd;
+  --cursor-red: #ff5a52;
 }
 
 .dtl *,
@@ -138,7 +141,7 @@
 /* Rows under a shared axis (the booking page): a slimmer bar. */
 .dtl[data-compact] .dtl-row { height: 40px; }
 
-/* The hover guide: a line with a dot at each end, under the pointer. */
+/* The hover guide on a chart of its own: the red cursor's dashed line under the pointer, a dot at each end. */
 .dtl-guide {
   pointer-events: none;
   position: absolute;
@@ -152,8 +155,8 @@
   justify-content: space-between;
   transform: translateX(-50%);
 }
-.dtl-guide-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--dtl-text-2); }
-.dtl-guide-line { width: 2px; flex: 1; background: color-mix(in srgb, var(--dtl-text-2) 70%, transparent); }
+.dtl-guide-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--cursor-red); }
+.dtl-guide-line { width: 0; flex: 1; border-left: 2px dashed var(--cursor-red); }
 
 /* The Now line, from its label through the row. */
 .dtl-now-line {
@@ -168,14 +171,19 @@
   transform: translateX(-50%);
 }
 .dtl-now-dot { width: 12px; height: 12px; flex-shrink: 0; border-radius: 999px; background: var(--now-line); box-shadow: 0 0 0 3px var(--dtl-card); }
-.dtl-now-dash { width: 0; flex: 1; border-left: 2px dashed var(--now-line); }
+.dtl-now-dash { width: 0; flex: 1; border-left: 2px solid var(--now-line); }
 .dtl-now-end { width: 7px; height: 7px; flex-shrink: 0; border-radius: 999px; background: var(--now-line); }
 
-/* ── The movable time cursor (doctor lists): a chip naming the time, its line through every row ── */
+/* ── The doctor lists: the red time cursor (dragged on the shared hours, its line through every row)
+      and the blue Now (static), each with a chip on the hours and a pin through every row ── */
 
-.dtl-cursor-axis, .dtl-cursor-line { --cursor: var(--now-line); }
+.dtl-cursor-chip, .dtl-cursor-stem, .dtl-cursor-line { --cursor: var(--cursor-red); }
+.dtl-now-chip, .dtl-now-stem { --cursor: var(--now-line); }
+/* The cursor's pin is the red one, dashed; Now's stays solid blue. */
+.dtl-cursor-line { --now-line: var(--cursor-red); }
+.dtl-cursor-line .dtl-now-dash { border-left-style: dashed; }
 .dtl-cursor-axis { cursor: ew-resize; touch-action: none; user-select: none; }
-.dtl-cursor-chip {
+.dtl-cursor-chip, .dtl-now-chip {
   position: absolute;
   bottom: 4px;
   z-index: 3;
@@ -192,14 +200,11 @@
   color: #fff;
   box-shadow: 0 2px 6px -1px color-mix(in srgb, var(--cursor) 55%, transparent);
   transform: translateX(-50%);
-  cursor: grab;
 }
-.dtl-cursor-chip:active { cursor: grabbing; }
-.dtl-cursor-chip:focus-visible { outline: 2px solid var(--cursor); outline-offset: 2px; }
-.dtl-cursor-chip[data-side='start'] { transform: translateX(-12px); }
-.dtl-cursor-chip[data-side='end'] { transform: translateX(calc(-100% + 12px)); }
+.dtl-cursor-chip[data-side='start'], .dtl-now-chip[data-side='start'] { transform: translateX(-12px); }
+.dtl-cursor-chip[data-side='end'], .dtl-now-chip[data-side='end'] { transform: translateX(calc(-100% + 12px)); }
 /* A small pointer under the chip, over the cursor's minute. */
-.dtl-cursor-chip::after {
+.dtl-cursor-chip::after, .dtl-now-chip::after {
   content: '';
   position: absolute;
   top: 100%;
@@ -208,9 +213,9 @@
   border-top-color: var(--cursor);
   transform: translateX(-50%);
 }
-.dtl-cursor-chip[data-side='start']::after { left: 12px; }
-.dtl-cursor-chip[data-side='end']::after { left: calc(100% - 12px); }
-.dtl-cursor-stem {
+.dtl-cursor-chip[data-side='start']::after, .dtl-now-chip[data-side='start']::after { left: 12px; }
+.dtl-cursor-chip[data-side='end']::after, .dtl-now-chip[data-side='end']::after { left: calc(100% - 12px); }
+.dtl-cursor-stem, .dtl-now-stem {
   pointer-events: none;
   position: absolute;
   top: 64px;
@@ -454,3 +459,22 @@ button.dtl-off:hover { box-shadow: inset 0 0 0 1.5px var(--dtl-line-strong); }
   white-space: nowrap;
   border: 0;
 }
+
+/* The blue Now on the doctor lists: solid, static, under the red cursor. */
+.dtl-now-stem { border-left-style: solid; }
+.dtl-now-pin {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+}
+.dtl-cursor-line { z-index: 3; }
+/* The red cursor's lane on the shared hours: its chip sits here, pointing down into the rows. */
+.dtl-cursor-lane { position: relative; height: 30px; }
+.dtl-cursor-lane .dtl-cursor-chip { bottom: 6px; }
+.dtl-now-stem { top: 36px; }

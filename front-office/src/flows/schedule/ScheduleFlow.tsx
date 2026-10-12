@@ -10,7 +10,7 @@ import { Alert } from '../../components/ui/Alert'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useStoreValue } from '../../hooks/useStore'
 import { useNow } from '../../hooks/useNow'
-import { getState, setState } from '../../domain/store'
+import { getState } from '../../domain/store'
 import {
   getAvailableSlots,
   getConsultationBillItems,
@@ -20,7 +20,7 @@ import {
   getProviderById,
   getToday,
 } from '../../domain/selectors'
-import { bookAppointment, cancelAppointment } from '../../domain/actions'
+import { bookAppointment, rebookUnpaidAppointment } from '../../domain/actions'
 import { formatRupees, sumItems } from '../../utils/billing'
 import { dayWithDate, relativeDayLabel } from '../../utils/dates'
 import { modesFor } from '../../utils/appointment'
@@ -254,26 +254,18 @@ function AppointmentFlow({ params, onClose }: FlowProps) {
     const doctor = getProviderById(getState(), pick.providerId)
     if (!doctor) return
     setError(null)
-    // Rescheduling an unpaid booking from the timeline: it gives way to the new time, and comes
-    // back untouched if the new one can't be booked.
-    const before = getState()
     try {
-      if (params.appointment) cancelAppointment({ appointmentId: params.appointment, by: 'Patient', note: 'Moved to another time before payment' })
       const mode = pick.providerId === providerId ? consultMode : (modesFor(doctor)[0] ?? 'In person')
-      bookAppointment({
-        patientId: who.patientId,
-        providerId: doctor.providerId,
-        date: pick.date,
-        slot: pick.slot,
-        mode,
-        reason: reason.trim() || undefined,
-      })
+      const booking = { providerId: doctor.providerId, date: pick.date, slot: pick.slot, mode, reason: reason.trim() || undefined }
+      // Rescheduling an unpaid booking from the timeline: the old booking and its bill are removed, not
+      // cancelled, so only the new time is seen anywhere. One save — if the new time can't be booked, nothing changes.
+      if (params.appointment) rebookUnpaidAppointment({ appointmentId: params.appointment, ...booking })
+      else bookAppointment({ patientId: who.patientId, ...booking })
       // Booked: straight to the patient's profile, where the timeline shows the booking and prints its bill.
       const profile = `/patients/${who.uhid}`
       if (location.pathname === profile) onClose()
       else navigate(profile, { replace: true })
     } catch (err) {
-      if (params.appointment) setState(before)
       const message = err instanceof Error ? err.message : String(err)
       setError(message)
       // A slot taken a moment ago: reopen the times so another can be picked.
@@ -282,7 +274,6 @@ function AppointmentFlow({ params, onClose }: FlowProps) {
   }
 
   // The patient is named once, on the page itself — the title says what is left to do.
-  const subtitle = patient ? 'Choose a doctor and a time' : 'Choose the patient'
   // Patient and department both chosen: they shrink to one strip, and the doctors get the screen.
   const compact = Boolean(patient && department && !changingPatient)
 
@@ -366,7 +357,7 @@ function AppointmentFlow({ params, onClose }: FlowProps) {
   // The doctor and the time were chosen on the Doctors page: just the patient, then it is booked.
   if (patientOnly && provider && date && slot && !patient) {
     return (
-      <FlowSheet title="Schedule Appointment" subtitle="Choose the patient" icon={CalendarPlus} onClose={onClose} size="full">
+      <FlowSheet title="Schedule Appointment" icon={CalendarPlus} onClose={onClose} size="full">
         <div className="mx-auto flex w-full max-w-2xl flex-col gap-4 py-2 sm:py-6">
           <AppointmentWhen provider={provider} date={date} slot={slot} mode={consultMode} today={today} />
           <div className="flex items-center justify-between gap-3 px-1 text-sm">
@@ -388,7 +379,7 @@ function AppointmentFlow({ params, onClose }: FlowProps) {
   }
 
   return (
-    <FlowSheet title="Schedule Appointment" subtitle={subtitle} icon={CalendarPlus} onClose={onClose} size="full" footer={confirmBar}>
+    <FlowSheet title="Schedule Appointment" icon={CalendarPlus} onClose={onClose} size="full" footer={confirmBar}>
       {/* One left-to-right progression — who, then which doctor, then when.
           From 1024px the date & time take the right half of the screen and the
           choices that lead to it share the left half (≥1280px: patient and
