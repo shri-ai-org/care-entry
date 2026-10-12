@@ -467,13 +467,17 @@ function HoverCard({ min, item, next, nextPatient, style }: { min: number; item?
 }
 
 /** The key under the row — and, for a screen reader, the day in one sentence and hour by hour — with the day's busy and free time. */
-export function DayTimelineKey({ model }: { model: DayModel }) {
+export function DayTimelineKey({ model, hideKey = false }: { model: DayModel; hideKey?: boolean }) {
   const events = model.items.filter((i) => isActivity(i.kind) && !i.activity?.iconOnly)
   // A booked patient is an OPD visit, in the OPD's green: the key names it once, as OPD.
   const kinds = [...new Set(events.map((e) => (e.kind === 'patient' ? 'opd' : e.kind) as ActivityKind))]
   const has = (k: string) => model.items.some((i) => i.kind === k && !i.past)
   return (
     <div className="dtl dtl-legend">
+      {/* In a list of doctors the key is shown once, above them (DayTimelineLegend); each row keeps its hours. */}
+      {hideKey ? (
+        <span className="dtl-sr">{model.summary}</span>
+      ) : (
       <div role="img" aria-label={model.summary} className="dtl-key">
         {kinds.map((k) => (
           <span key={k} className="dtl-key-item">
@@ -516,6 +520,7 @@ export function DayTimelineKey({ model }: { model: DayModel }) {
           </span>
         )}
       </div>
+      )}
       <p className="dtl-totals">
         Busy <b>{duration(model.busyMin)}</b> · Available <b>{duration(model.freeMin)}</b>
       </p>
@@ -524,6 +529,36 @@ export function DayTimelineKey({ model }: { model: DayModel }) {
           <li key={c.start}>{hourLine(c)}</li>
         ))}
       </ul>
+    </div>
+  )
+}
+
+/** The key, once, for a list of doctors' days under one shared axis — not repeated on every row. */
+export function DayTimelineLegend() {
+  return (
+    <div className="dtl dtl-key-flat" role="list" aria-label="Key">
+      <span role="listitem" className="dtl-key-item">
+        <span className="dtl-swatch" data-kind="opd" />
+        Booked
+      </span>
+      <span role="listitem" className="dtl-key-item">
+        <span className="dtl-swatch" data-kind="tele" />
+        Teleconsult
+      </span>
+      <span role="listitem" className="dtl-key-item">
+        <span className="dtl-swatch-free">
+          <Plus size={11} strokeWidth={2.5} aria-hidden="true" />
+        </span>
+        Available
+      </span>
+      <span role="listitem" className="dtl-key-item">
+        <span className="dtl-swatch-gone" />
+        Time passed
+      </span>
+      <span role="listitem" className="dtl-key-item">
+        <span className="dtl-swatch-off" />
+        Break
+      </span>
     </div>
   )
 }

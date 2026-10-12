@@ -152,7 +152,7 @@ export function DoctorDayChart({
           if (uhid) navigate(`/patients/${uhid}`)
         }}
       />
-      <DayTimelineKey model={model} />
+      <DayTimelineKey model={model} hideKey={Boolean(sharedRange)} />
 
       <Modal
         open={notice !== null}

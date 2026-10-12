@@ -12,7 +12,7 @@ import { useNow } from '../hooks/useNow'
 import { useFlow } from '../flows/useFlow'
 import { addDaysToKey, compareDepartments, getDirectorySuggestions, getDoctorRows, getToday } from '../domain/selectors'
 import { getDoctorsDateStrip, getDoctorsDayRange } from '../domain/doctorDaySelectors'
-import { DayTimelineAxis } from '../components/dayTimeline/DayTimeline'
+import { DayTimelineAxis, DayTimelineLegend } from '../components/dayTimeline/DayTimeline'
 import { dayStartTimestamp } from '../domain/time'
 import type { DoctorSuggestion } from '../domain/selectors'
 import { departmentIcon, departmentTone } from '../utils/departments'
@@ -213,7 +213,10 @@ export function DoctorDirectoryPage() {
             })}
           </div>
           {/* Lined up with the charts inside the cards: this bar's border stands in for theirs. */}
-          <div className="@container">
+          <div className="@container relative">
+            <div className="px-3.5 pt-1 sm:px-4 @3xl:absolute @3xl:bottom-2 @3xl:left-0 @3xl:w-[18rem] @3xl:pt-0">
+              <DayTimelineLegend />
+            </div>
             <div className="px-3.5 sm:px-4 @3xl:pl-[calc(18rem+1rem)]">
               <DayTimelineAxis range={range} now={day === today ? minutesOfDay(now) : null} />
             </div>

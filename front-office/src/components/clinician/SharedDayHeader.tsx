@@ -1,4 +1,4 @@
-import { DayTimelineAxis } from '../dayTimeline/DayTimeline'
+import { DayTimelineAxis, DayTimelineLegend } from '../dayTimeline/DayTimeline'
 import { addDaysToKey } from '../../domain/selectors'
 import { dayStartTimestamp } from '../../domain/time'
 import { cn } from '../../utils/cn'
@@ -72,7 +72,11 @@ export function SharedDayHeader({
         })}
       </div>
       {/* Doctor on the left (18rem + its border), the chart on the right — as inside the cards. */}
-      <div className="@container">
+      {/* The key sits over the doctors' column (left of the hours) on wide rows, above the hours on narrow ones. */}
+      <div className="@container relative">
+        <div className="px-[calc(0.875rem+1px)] pt-1 sm:px-[calc(1rem+1px)] @3xl:absolute @3xl:bottom-2 @3xl:left-0 @3xl:w-[18rem] @3xl:pt-0">
+          <DayTimelineLegend />
+        </div>
         <div className="px-[calc(0.875rem+1px)] sm:px-[calc(1rem+1px)] @3xl:pl-[calc(18rem+1px+1rem)]">
           <DayTimelineAxis range={range} now={day === today ? minutesOfDay(now) : null} />
         </div>
