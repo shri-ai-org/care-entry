@@ -4,22 +4,6 @@ import { formatTimestampTime } from '../domain/time'
 
 export { formatHour, formatTime, formatTimeRange } from '../domain/time'
 
-const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-const MONTHS = [
-  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-]
-
-// Dates are DD-MMM-YYYY (MM/DD is forbidden); every time people read is
-// 12-hour with AM/PM. (This supersedes UI_ATLAS §5.4's 24-hour rule.)
-export function formatHeaderDateTime(date: Date = new Date()): string {
-  const weekday = WEEKDAYS[date.getDay()]
-  const day = String(date.getDate()).padStart(2, '0')
-  const month = MONTHS[date.getMonth()]
-  const year = date.getFullYear()
-  return `${weekday} ${day}-${month}-${year} · ${formatTimestampTime(date.getTime())}`
-}
-
 // UI_ATLAS §4.5 — three confidence bands, never a bare percentage.
 export type ConfidenceBand = 'HIGH' | 'MED' | 'LOW'
 

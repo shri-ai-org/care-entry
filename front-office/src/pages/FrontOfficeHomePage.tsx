@@ -36,7 +36,6 @@ import { returnGuestPass } from '../domain/actions'
 import { CheckInToggle } from '../components/appointment/CheckInToggle'
 import { formatRupees } from '../utils/billing'
 import { appointmentStatusLabel } from '../utils/appointment'
-import { formatHeaderDateTime } from '../utils/format'
 import { TONE_VAR } from '../utils/tone'
 
 const ATTENTION_ICON: Record<NeedsAttentionItem['tone'], ElementType> = {
@@ -125,7 +124,6 @@ export function FrontOfficeHomePage() {
     <div>
       <PageHeader
         title="SHRI Health Care Entry"
-        subtitle={formatHeaderDateTime(new Date(now))}
         pinActions
         actions={
           <Button onClick={() => navigate('/register/new')}>
