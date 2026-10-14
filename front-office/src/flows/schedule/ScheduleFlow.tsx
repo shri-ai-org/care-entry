@@ -415,7 +415,6 @@ function AppointmentFlow({ params, onClose }: FlowProps) {
             </div>
             <span aria-hidden="true" className="hidden h-6 w-px bg-border-soft xl:block" />
             <div className="flex min-w-0 flex-1 items-center gap-2.5">
-              <span className="text-2xs font-semibold uppercase tracking-wide text-ink-subtle">Department</span>
               <DepartmentChips departments={departments.map((d) => d.department)} selected={department} onChoose={chooseDepartment} />
             </div>
           </section>
@@ -467,11 +466,11 @@ function AppointmentFlow({ params, onClose }: FlowProps) {
           </>
         )}
 
-        {/* Right · Doctor Availability — each doctor with their own times. */}
+        {/* Right · Doctor's Availability — each doctor with their own times. */}
         <Quadrant
           id="book-availability"
           step={3}
-          title="Doctor Availability"
+          title="Doctor's Availability"
           done={Boolean(provider && date && slot)}
           current={currentIndex === 2}
           summary={timeSummary}

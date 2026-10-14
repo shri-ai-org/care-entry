@@ -132,7 +132,7 @@ export function PatientDetailsStrip({ patient }: { patient: Patient }) {
                 value={draft.age}
                 onChange={(e) => edit('age', nextAgeInput(e.target.value, draft.age))}
                 className={cn(inputClass, (draftErrors.age || needsAgeConfirm) && errorClass)}
-                placeholder="Age 0–130"
+                placeholder="Age"
                 aria-label="Age in years, 0 to 130"
                 aria-invalid={Boolean(draftErrors.age) || (needsAgeConfirm && !draft.ageConfirmed)}
                 inputMode="numeric"

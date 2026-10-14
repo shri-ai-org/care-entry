@@ -254,7 +254,6 @@ export function RescheduleFlow({ params, onClose }: FlowProps) {
         </div>
         <span aria-hidden="true" className="hidden h-6 w-px bg-border-soft xl:block" />
         <div className="flex min-w-0 flex-1 items-center gap-2.5">
-          <span className="text-2xs font-semibold uppercase tracking-wide text-ink-subtle">Department</span>
           <DepartmentChips departments={departments} selected={department} onChoose={chooseDepartment} />
         </div>
       </section>
@@ -263,7 +262,7 @@ export function RescheduleFlow({ params, onClose }: FlowProps) {
       <Quadrant
         id="reschedule-availability"
         step={2}
-        title="Doctor Availability"
+        title="Doctor's Availability"
         done={timeDone}
         scrollFrom="xl"
         className="xl:min-h-0 xl:flex-1"

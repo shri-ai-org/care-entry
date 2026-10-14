@@ -4,7 +4,7 @@ import type { IconTone } from './toneHex'
 import { cn } from './cn'
 
 /**
- * The time-chip look shared by Doctor Availability's hour blocks and the
+ * The time-chip look shared by Doctor's Availability's hour blocks and the
  * booking slot board, so a time reads the same everywhere: a soft tint of a
  * hue with its edge and ink in the same hue (DESIGN_SYSTEM §4.4 — hue in
  * tints, never a saturated fill), plus the two quiet neutrals.

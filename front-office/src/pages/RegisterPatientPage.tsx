@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { UserPlus, UserRoundCheck } from 'lucide-react'
 import { PageHeader } from '../components/layout/PageHeader'
+import { AbhaScanButton } from '../components/patient/AbhaScanButton'
 import { Card, CardBody, CardHeader } from '../components/ui/Card'
 import { Button } from '../components/ui/Button'
 import { Alert } from '../components/ui/Alert'
@@ -226,7 +227,6 @@ export function RegisterPatientPage() {
                     onBlur={touch('age')}
                     inputMode="numeric"
                     maxLength={3}
-                    placeholder="0–130"
                     aria-invalid={Boolean(shown('age')) || (needsAgeConfirm && !form.ageConfirmed)}
                     className={cn(inputClass, (shown('age') || needsAgeConfirm) && errorClass, needsAgeConfirm && 'font-semibold text-critical-fg')}
                   />
@@ -315,6 +315,7 @@ export function RegisterPatientPage() {
               </Field>
 
               <div className="flex flex-col items-stretch gap-2 border-t border-border-soft pt-4 sm:flex-row sm:items-center sm:justify-end">
+                <AbhaScanButton />
                 <Button type="submit">
                   <UserPlus className="h-4 w-4" strokeWidth={1.75} />
                   Register Patient

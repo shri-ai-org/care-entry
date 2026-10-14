@@ -17,7 +17,7 @@ import { dayStartTimestamp, formatTime } from '../../domain/time'
 const WEEKDAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 /**
- * One doctor and their day, in one card — Doctor Availability in the
+ * One doctor and their day, in one card — Doctor's Availability in the
  * booking page, and each row of the Doctors directory. The doctor (name,
  * Soonest tag, specialty, department, fee, room, next free time) sits on
  * top; tapping it takes their earliest time. Below, the doctor's own days as

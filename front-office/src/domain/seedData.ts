@@ -362,7 +362,7 @@ export function createSeedState(): AppState {
     },
     // Every department has at least five doctors (more below), so the
     // desk always has a real choice — the same records drive the directory,
-    // booking, Doctor Availability and every filter.
+    // booking, Doctor's Availability and every filter.
     seedDoctor({
       providerId: 'dr-sanjay-iyer', name: 'Dr. Sanjay Iyer', gender: 'Male', dateOfBirth: '1979-02-14', mobile: '+91 98456 20341', handle: 'sanjay.iyer',
       department: 'Neurology', specialty: 'Movement Disorders', qualification: 'MBBS, MD, DM (Neurology)', registrationNumber: 'KMC-55617', experienceYears: 15,
