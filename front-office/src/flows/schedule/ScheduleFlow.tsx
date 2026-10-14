@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowRight, Building2, CalendarPlus, Pencil, Video } from 'lucide-react'
+import { ArrowRight, Building2, CalendarPlus, Video } from 'lucide-react'
 import { FlowSheet } from '../../components/flow/FlowSheet'
 import { PatientSearch } from '../../components/patient/PatientSearch'
 import { DoctorSlotCard } from '../../components/clinician/DoctorSlotCard'
@@ -404,14 +404,6 @@ function AppointmentFlow({ params, onClose }: FlowProps) {
                   {patient.age ? ` · ${patient.age} ${patient.sex.charAt(0)}` : ''}
                 </span>
               </span>
-              <button
-                type="button"
-                onClick={() => setChangingPatient(true)}
-                className="focus-ring inline-flex h-10 shrink-0 cursor-pointer items-center gap-1.5 rounded-full border border-primary-200 bg-primary-50 px-4 text-sm font-semibold text-primary-text shadow-card-sm transition-all hover:-translate-y-0.5 hover:bg-primary-100 hover:shadow-card-md dark:border-primary-500/35"
-              >
-                <Pencil size={14} aria-hidden="true" />
-                Change
-              </button>
             </div>
             <span aria-hidden="true" className="hidden h-6 w-px bg-border-soft xl:block" />
             <div className="flex min-w-0 flex-1 items-center gap-2.5">
@@ -437,14 +429,6 @@ function AppointmentFlow({ params, onClose }: FlowProps) {
                 <p className="min-w-0 truncate text-base font-semibold text-ink" title={patient.name}>
                   {patient.name}
                 </p>
-                <button
-                  type="button"
-                  onClick={() => setChangingPatient(true)}
-                  className="focus-ring -my-1 -mr-1.5 inline-flex min-h-8 shrink-0 items-center gap-1 rounded-lg px-1.5 text-xs font-semibold text-primary-text hover:bg-primary-100"
-                >
-                  <Pencil size={13} aria-hidden="true" />
-                  Change
-                </button>
               </div>
               <dl className="mt-1.5 grid grid-cols-[auto_minmax(0,1fr)] gap-x-3 gap-y-0.5 text-xs">
                 <dt className="text-ink-subtle">UHID</dt>

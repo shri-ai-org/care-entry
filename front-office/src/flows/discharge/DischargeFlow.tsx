@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Check, IdCard, IndianRupee, Loader2, LogOut, Pencil, Printer, UserRound } from 'lucide-react'
+import { Check, IdCard, IndianRupee, Loader2, LogOut, Printer, UserRound } from 'lucide-react'
 import { FlowSheet } from '../../components/flow/FlowSheet'
 import { AckCard } from '../../components/flow/AckCard'
 import { Quadrant } from '../../components/flow/Quadrant'
@@ -214,12 +214,6 @@ export function DischargeFlow({ params, onClose }: FlowProps) {
                         {patient.mobile ? ` · ${patient.mobile}` : ''}
                       </p>
                     </div>
-                    {printed ? null : (
-                      <Button size="sm" variant="secondary" onClick={() => setPicking(true)}>
-                        <Pencil className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden="true" />
-                        Change
-                      </Button>
-                    )}
                   </div>
                 ) : null}
 
