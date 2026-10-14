@@ -12,6 +12,7 @@ import {
   UserPlus,
 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import { AbhaScanButton } from '../components/patient/AbhaScanButton'
 import { PageHeader } from '../components/layout/PageHeader'
 import { Button } from '../components/ui/Button'
 import { Badge } from '../components/ui/Badge'
@@ -126,12 +127,15 @@ export function FrontOfficeHomePage() {
         title="SHRI Health Care Entry"
         pinActions
         actions={
+          <>
+          <AbhaScanButton />
           <Button onClick={() => navigate('/register/new')}>
             <UserPlus className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
             {/* "Register" alone fits beside the title on a phone. */}
             <span className="sm:hidden">Register</span>
             <span className="hidden sm:inline">Register Patient</span>
           </Button>
+          </>
         }
       />
 

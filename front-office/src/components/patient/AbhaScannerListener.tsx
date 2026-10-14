@@ -7,6 +7,7 @@ import { registerPatient } from '../../domain/actions'
 import { ABHA_REGISTERED_EVENT, ABHA_SCAN_EVENT, parseAbhaScan } from '../../utils/abhaQr'
 import type { AbhaScan } from '../../utils/abhaQr'
 import { nextNameInput } from '../../utils/validation'
+import { takeAbhaScan } from '../../utils/abhaScanGate'
 import type { Patient } from '../../types/patient'
 
 // A USB QR scanner (Zebra DS2208 in its default keyboard mode) "types" the
@@ -103,7 +104,10 @@ export function AbhaScannerListener() {
       stripLeaked(done.leaked)
       ;(document.activeElement as HTMLElement | null)?.blur?.()
       const scan = parseAbhaScan(payloadOf(done.text))
-      if (scan) handle(scan)
+      // With the Scan ABHA card open, it shows the scan and fetching first, then runs the same flow.
+      if (scan) {
+        if (!takeAbhaScan(() => handle(scan))) handle(scan)
+      }
       else if (viaEnter || done.text.includes('{')) notify('Not an ABHA QR code', { tone: 'error', detail: 'Scan the QR code on the patient’s ABHA card.' })
     }
 
